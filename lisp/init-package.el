@@ -8,4 +8,11 @@
   :defer nil
   :config (which-key-mode))
 
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
+
+;; (use-package cnfonts
+  ;; (cnfonts-enable))
+
 (provide 'init-package)
