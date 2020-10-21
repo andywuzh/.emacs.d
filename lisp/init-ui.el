@@ -13,4 +13,8 @@
 	    sml/theme 'respectful)
   (sml/setup))
 
+;;; 字体
+(use-package cnfonts
+  :init (cnfonts-enable))
+
 (provide 'init-ui)
