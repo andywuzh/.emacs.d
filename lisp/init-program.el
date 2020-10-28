@@ -18,6 +18,8 @@
 (use-package projectile
   :init
   (projectile-mode +1)
+  (setq projectile-switch-project-action #'projectile-dired)
+  (setq projectile-completion-system 'ivy)
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 (use-package counsel-projectile
@@ -30,11 +32,29 @@
   :init
   (global-set-key [f8] 'neotree-toggle))
 
+(use-package treemacs
+  :init
+  (with-eval-after-load 'winum
+    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  :config
+  (progn
+    (treemacs-follow-mode t)
+    (treemacs-filewatch-mode t)
+    (treemacs-fringe-indicator-mode t))
+  :bind
+  (:map global-map
+        ("M-0" . treemacs-select-window)
+        ("C-x t t" . treemacs)))
+(use-package treemacs-projectile
+  :after treemacs projectile)
+
+
 ;;; php
 (use-package ac-php)
 (use-package company-php)
 (use-package php-mode
   :init
+  ;;;(add-hook 'php-mode-hook 'evil-mode)
   (add-hook 'php-mode-hook
           '(lambda ()
              (company-mode t)
@@ -75,6 +95,7 @@
   :config
   (add-hook 'web-mode-hook 'company-mode)
   (add-hook 'web-mode-hook 'emmet-mode)
+  ;; (add-hook 'web-mode-hook 'evil-mode)
   (add-hook 'web-mode-hook 'lsp-mode))
 
 ;; (use-package prettier)
