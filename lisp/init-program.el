@@ -28,6 +28,8 @@
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
+;(use-package yasnippet)
+
 (use-package neotree
   :init
   (global-set-key [f8] 'neotree-toggle))
@@ -56,22 +58,24 @@
   :init
   ;;;(add-hook 'php-mode-hook 'evil-mode)
   (add-hook 'php-mode-hook
-          '(lambda ()
-             (company-mode t)
+            '(lambda ()
+               (require 'flycheck-phpstan)
+               (flycheck-mode t)
 
-             (require 'company-php)
+               (company-mode t)
+               (require 'company-php)
 
-             (ac-php-core-eldoc-setup)
+               (ac-php-core-eldoc-setup)
 
-             (set (make-local-variable 'company-backends)
-                  '((company-ac-php-backend company-dabbrev-code)
-                    company-capf company-files))
+               (set (make-local-variable 'company-backends)
+                    '((company-ac-php-backend company-dabbrev-code)
+                      company-capf company-files))
 
-             (define-key php-mode-map (kbd "M-]")
-               'ac-php-find-symbol-at-point)
+               (define-key php-mode-map (kbd "M-]")
+                 'ac-php-find-symbol-at-point)
 
-             (define-key php-mode-map (kbd "M-[")
-               'ac-php-location-stack-back))))
+               (define-key php-mode-map (kbd "M-[")
+                 'ac-php-location-stack-back))))
 
 ;; (use-package php-cs-fixer)
 ;; (use-package flycheck-phpstan)

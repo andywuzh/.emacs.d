@@ -14,12 +14,11 @@
   (show-paren-mode 1)
   ;;; 自动补齐括号等
   (electric-pair-mode 1)
-  (setq electric-pair-pairs '(
-                              (?\" . ?\")
+  (setq electric-pair-pairs '((?\" . ?\")
                               (?\' . ?\')
                               (?\{ . ?\})
                               (?\( . ?\))
-                              (?\[ . ?\])))
+                              (?\[ . ?\]))))
 
 ;;; 高亮匹配括号
 (use-package highlight-parentheses

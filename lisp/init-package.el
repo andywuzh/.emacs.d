@@ -13,12 +13,19 @@
   :config
   (editorconfig-mode 1))
 
-(use-package evil)
+(use-package evil
+  :init
+  (evil-mode 1)
+  (evil-set-initial-state 'shell-mode 'emacs)
+  (evil-set-initial-state 'help-mode 'emacs)
+  (evil-set-initial-state 'neotree-mode 'emacs)
+  (evil-set-initial-state 'emacs-lisp-mode 'emacs))
 ;;; 在部分mode中初始化evil-mode时为emacs state
 ;(loop for (mode . state) in '((shell-mode . emacs)
-;                              (help-mode . emacs))
-;      do (evil-set-initial-state mode state))
-(evil-set-initial-state 'shell-mode 'emacs)
+;                              (help-mode . emacs)
+;                              (neotree-mode . emacs)
+;                              (emacs-lisp-mode . emacs))
+;      do (evil-set-initial-state mode state)))
 
 (use-package counsel
   :init
