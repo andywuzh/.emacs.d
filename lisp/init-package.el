@@ -19,6 +19,7 @@
   (evil-set-initial-state 'shell-mode 'emacs)
   (evil-set-initial-state 'help-mode 'emacs)
   (evil-set-initial-state 'neotree-mode 'emacs)
+  (evil-set-initial-state 'dired-mode 'emacs)
   (evil-set-initial-state 'emacs-lisp-mode 'emacs))
 ;;; 在部分mode中初始化evil-mode时为emacs state
 ;(loop for (mode . state) in '((shell-mode . emacs)
