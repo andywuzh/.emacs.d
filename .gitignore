@@ -7,3 +7,6 @@ transient/
 .lsp-session-v1
 projectile-bookmarks.eld
 .cache
+cnfonts/
+recentf
+tramp
