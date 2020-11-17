@@ -17,6 +17,7 @@
   :init
   (evil-mode 1)
   (evil-set-initial-state 'shell-mode 'emacs)
+  (evil-set-initial-state 'term-mode 'emacs)
   (evil-set-initial-state 'help-mode 'emacs)
   (evil-set-initial-state 'neotree-mode 'emacs)
   (evil-set-initial-state 'dired-mode 'emacs)
