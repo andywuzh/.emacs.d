@@ -10,7 +10,7 @@
 (setq inhibit-startup-screen t)
 
 ;(setq gc-cons-threshold most-positive-fixnum) ; max
-(setq gc-cons-threshold (* 1024 1024 100))  ; 100mb
+;(setq gc-cons-threshold (* 1024 1024 100))  ; 100mb
 (setq read-process-output-max (* 1024 1024)) ; 1mb
 
 ;; 不备份
