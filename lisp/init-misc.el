@@ -25,5 +25,10 @@
   :init
   (highlight-parentheses-mode t)
   (global-highlight-parentheses-mode t))
-  
+
+;;; 保存文件时删除行尾空格
+(add-hook 'before-save-hook '(lambda()
+                               (delete-trailing-whitespace) ; 删除行尾空格
+                               ))
+
 (provide 'init-misc)
