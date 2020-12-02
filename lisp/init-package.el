@@ -45,5 +45,9 @@
   (global-set-key (kbd "M-y") 'counsel-yank-pop)
   (global-set-key (kbd "C-x b") 'ivy-switch-buffer))
 
+(use-package rg
+  :init
+  (rg-enable-default-bindings))
+
 
 (provide 'init-package)
