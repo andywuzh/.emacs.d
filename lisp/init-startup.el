@@ -1,7 +1,7 @@
 (menu-bar-mode -1)
 
 (when (display-graphic-p)
-  (tool-bar-mode -1)  
+  (tool-bar-mode -1)
   (scroll-bar-mode -1))
 
 (unless window-system
@@ -10,7 +10,7 @@
 (setq inhibit-startup-screen t)
 
 ;(setq gc-cons-threshold most-positive-fixnum) ; max
-;(setq gc-cons-threshold (* 1024 1024 100))  ; 100mb
+(setq gc-cons-threshold (* 1024 1024 200))  ; 200mb
 (setq read-process-output-max (* 1024 1024)) ; 1mb
 
 ;; 不备份

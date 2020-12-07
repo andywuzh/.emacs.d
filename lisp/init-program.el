@@ -11,7 +11,7 @@
   :config
   (setq company-minimum-prefix-length 1)
   (setq company-dabbrev-downcase nil)
-  (setq company-idle-delay 0.3)
+  (setq company-idle-delay 0.2)
   (add-hook 'company-mode-hook 'company-quickhelp-mode)
   (global-company-mode t))
 
@@ -28,7 +28,9 @@
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
-;(use-package yasnippet)
+(use-package yasnippet
+  :commands yas-minor-mode
+  :hook ((go-mode php-mode) . yas-minor-mode))
 
 (use-package neotree
   :init
@@ -52,30 +54,30 @@
 
 
 ;;; php
-(use-package ac-php)
-(use-package company-php)
-(use-package php-mode
-  :init
-  ;;;(add-hook 'php-mode-hook 'evil-mode)
-  (add-hook 'php-mode-hook
-            '(lambda ()
-               (require 'flycheck-phpstan)
-               (flycheck-mode t)
+;(use-package ac-php)
+;(use-package company-php)
+;(use-package php-mode
+;  :init
+;  ;;;(add-hook 'php-mode-hook 'evil-mode)
+;  (add-hook 'php-mode-hook
+;            '(lambda ()
+;               (require 'flycheck-phpstan)
+;               (flycheck-mode t)
 
-               (company-mode t)
-               (require 'company-php)
+;               (company-mode t)
+;               (require 'company-php)
 
-               (ac-php-core-eldoc-setup)
+;               (ac-php-core-eldoc-setup)
 
-               (set (make-local-variable 'company-backends)
-                    '((company-ac-php-backend company-dabbrev-code)
-                      company-capf company-files))
+;               (set (make-local-variable 'company-backends)
+;                    '((company-ac-php-backend company-dabbrev-code)
+;                      company-capf company-files))
 
-               (define-key php-mode-map (kbd "M-]")
-                 'ac-php-find-symbol-at-point)
+;               (define-key php-mode-map (kbd "M-]")
+;                 'ac-php-find-symbol-at-point)
 
-               (define-key php-mode-map (kbd "M-[")
-                 'ac-php-location-stack-back))))
+;               (define-key php-mode-map (kbd "M-[")
+;                 'ac-php-location-stack-back))))
 
 ;; (use-package php-cs-fixer)
 ;; (use-package flycheck-phpstan)
@@ -83,13 +85,34 @@
 ;;; lsp
 (use-package lsp-mode
   :config
-  (setq lsp-completion-provider :capf)
-  (setq lsp-modeline-diagnostics-enable t)
-  :hook ((web-mode . lsp-deferred)
-         (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp lsp-deferred)
+  (setq
+   lsp-completion-provider :capf
+   ;lsp-idle-delay 0.500
+   lsp-modeline-diagnostics-enable t
+   lsp-auto-guess-root t
+   ;lsp-log-io t
+   )
+  :commands (lsp lsp-deferred)
+  :hook
+  ((web-mode
+    go-mode
+    php-mode) . lsp-deferred)
+  (lsp-mode . lsp-enable-which-key-integration))
+
+
 (use-package lsp-ui :commands lsp-ui-mode)
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+(use-package lsp-treemacs
+  :init
+  (setq lsp-treemacs-sync-mode 1)
+  :commands lsp-treemacs-errors-list)
+
+;;; golang
+;(use-package go-mode)
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
 
 ;;; html/js/vue
 (use-package web-mode
