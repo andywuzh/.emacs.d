@@ -90,6 +90,7 @@
    ;lsp-idle-delay 0.500
    lsp-modeline-diagnostics-enable t
    lsp-auto-guess-root t
+   lsp-enable-file-watchers t
    ;lsp-log-io t
    )
   :commands (lsp lsp-deferred)
