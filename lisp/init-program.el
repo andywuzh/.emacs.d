@@ -1,25 +1,37 @@
+;;; init-program --- 编程配置
+;;; Commentary:
+;;; Code:
+
 ;;; 开发通用
 (use-package magit
   :bind ("C-x g" . magit-status))
 
+; company
 (use-package company-quickhelp)
 (use-package company
   :bind
   (:map company-active-map
         ("C-n" . company-select-next)
         ("C-p" . company-select-previous))
+  :init
+  (setq company-minimum-prefix-length 1
+        company-idle-delay 0.2
+        company-tooltip-align-annotations t
+        ;company-show-numbers t
+        ;company-tooltip-limit 20
+        company-dabbrev-downcase nil
+        )
+  :hook
+  (company-mode . company-quickhelp-mode)
   :config
-  (setq company-minimum-prefix-length 1)
-  (setq company-dabbrev-downcase nil)
-  (setq company-idle-delay 0.2)
-  (add-hook 'company-mode-hook 'company-quickhelp-mode)
   (global-company-mode t))
 
+; projectile
 (use-package projectile
   :init
   (projectile-mode +1)
-  (setq projectile-switch-project-action #'projectile-dired)
-  (setq projectile-completion-system 'ivy)
+  (setq projectile-switch-project-action #'projectile-dired
+        projectile-completion-system 'ivy)
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 (use-package counsel-projectile
@@ -28,14 +40,20 @@
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
+; yasnippet
 (use-package yasnippet
+  :config
+  (yas-global-mode 1)
   :commands yas-minor-mode
   :hook ((go-mode php-mode) . yas-minor-mode))
+(use-package yasnippet-snippets
+  :after yasnippet)
 
 (use-package neotree
   :init
   (global-set-key [f8] 'neotree-toggle))
 
+; treemacs
 (use-package treemacs
   :init
   (with-eval-after-load 'winum
@@ -52,6 +70,11 @@
 (use-package treemacs-projectile
   :after treemacs projectile)
 
+(use-package flycheck
+  :init
+  (setq flycheck-emacs-lisp-load-path 'inherit)
+  :config
+  (global-flycheck-mode))
 
 ;;; php
 ;(use-package ac-php)
@@ -86,22 +109,39 @@
 (use-package lsp-mode
   :config
   (setq
+   lsp-enable-snippet t
    lsp-completion-provider :capf
    ;lsp-idle-delay 0.500
    lsp-modeline-diagnostics-enable t
    lsp-auto-guess-root t
    lsp-enable-file-watchers t
+   lsp-response-timeout 30
    ;lsp-log-io t
    )
   :commands (lsp lsp-deferred)
   :hook
   ((web-mode
     go-mode
-    php-mode) . lsp-deferred)
+    php-mode
+    web-mode) . lsp-deferred)
   (lsp-mode . lsp-enable-which-key-integration))
 
-
-(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ui
+  :after
+  (lsp-mode)
+  :commands
+  (lsp-ui-mode)
+  :bind
+  (:map lsp-ui-mode-map
+        ([remap xref-find-references] . lsp-ui-peek-find-references)
+        ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+        ("C-c u" . lsp-ui-imenu))
+  :hook
+  (lsp-mode . lsp-ui-mode)
+  :init
+  (setq lsp-enable-symbol-highlighting t
+        lsp-ui-doc-enable t
+        lsp-lens-enable t))
 (use-package lsp-treemacs
   :init
   (setq lsp-treemacs-sync-mode 1)
@@ -124,7 +164,8 @@
   (add-hook 'web-mode-hook 'company-mode)
   (add-hook 'web-mode-hook 'emmet-mode)
   ;; (add-hook 'web-mode-hook 'evil-mode)
-  (add-hook 'web-mode-hook 'lsp-mode))
+  ;; (add-hook 'web-mode-hook 'lsp-mode)
+  )
 
 ;; (use-package prettier)
 ;; (use-package js2-mode)

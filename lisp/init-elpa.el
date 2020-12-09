@@ -15,7 +15,7 @@
 
 ;;; 确保安装use-package
 (unless (package-installed-p 'use-package)
-  (package-refresh-contents)
+  ; (package-refresh-contents)
   (package-install 'use-package))
 
 ;;; use-package配置
