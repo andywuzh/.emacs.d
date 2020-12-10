@@ -104,6 +104,9 @@
 
 ;; (use-package php-cs-fixer)
 ;; (use-package flycheck-phpstan)
+;(add-hook 'php-mode-hook '(lambda ()
+;                            (add-hook 'before-save-hook 'php-cs-fixer-before-save)
+;                            ))
 
 ;;; lsp
 (use-package lsp-mode
@@ -135,7 +138,10 @@
   (:map lsp-ui-mode-map
         ([remap xref-find-references] . lsp-ui-peek-find-references)
         ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-        ("C-c u" . lsp-ui-imenu))
+        ("C-c u" . lsp-ui-imenu)
+        ("M-]" . lsp-ui-peek-find-definitions)
+        ("M-[" . lsp-ui-peek-jump-backward)
+        ("C-c r" . lsp-ui-peek-find-references))
   :hook
   (lsp-mode . lsp-ui-mode)
   :init
