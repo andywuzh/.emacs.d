@@ -2,7 +2,6 @@
 (add-to-list 'load-path
 	     (expand-file-name (concat user-emacs-directory "lisp")))
 
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 (require 'init-const)
 (require 'init-startup)
@@ -13,6 +12,11 @@
 (require 'init-program)
 
 (require 'init-ui)
+
+(when *is-linux*
+  (setq custom-file (expand-file-name "custom.el" user-emacs-directory)))
+(when *is-mac*
+  (setq custom-file (expand-file-name "custom.mac.el" user-emacs-directory)))
 
 (when (file-exists-p custom-file)
   (load-file custom-file))
