@@ -106,7 +106,8 @@
 ;; (use-package flycheck-phpstan)
 ;(add-hook 'php-mode-hook '(lambda ()
 ;                            (add-hook 'before-save-hook 'php-cs-fixer-before-save)
-;                            ))
+                                        ;                            ))
+(use-package php-mode)
 
 ;;; lsp
 (use-package lsp-mode
