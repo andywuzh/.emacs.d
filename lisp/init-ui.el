@@ -4,7 +4,10 @@
 ;; (use-package gruvbox-theme
 ;;   :init (load-theme 'gruvbox-dark-soft t))
 ;; (use-package doom-themes
- ;; :init (load-theme 'doom-one t))
+;; :init (load-theme 'doom-one t))
+
+;;; 透明
+(set-frame-parameter (selected-frame) 'alpha '(90 . 50))
 
 ;;; 状态栏
 (use-package smart-mode-line
