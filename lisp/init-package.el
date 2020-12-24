@@ -49,5 +49,15 @@
   :init
   (rg-enable-default-bindings))
 
+(use-package keyfreq
+  :init
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1)
+  (setq keyfreq-excluded-commands
+        '(self-insert-command
+          forward-char
+          backward-char
+          previous-line
+          next-line)))
 
 (provide 'init-package)
