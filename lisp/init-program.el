@@ -5,6 +5,18 @@
 ;;; 开发通用
 (use-package magit
   :bind ("C-x g" . magit-status))
+(use-package git-gutter
+  :init
+  (global-git-gutter-mode +1)
+  (setq git-gutter:modified-sign "  "
+        git-gutter:added-sign "++"
+        git-gutter:deleted-sign "--"
+        git-gutter:visual-line t
+        git-gutter:hide-gutter t
+        git-gutter:disabled-modes '(asm-mode image-mode))
+  (set-face-background 'git-gutter:modified "purple")
+  (set-face-background 'git-gutter:added "green")
+  (set-face-background 'git-gutter:deleted "red"))
 
 ; company
 (use-package company-quickhelp)
