@@ -18,9 +18,9 @@
   (evil-mode 1)
   (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
   ;;; 在部分mode中初始化evil-mode时为emacs state
-  (lambda ()
-    (loop for (mode . state ) in '(eshell-mode shell-mode term-mode help-mode neotree-mode dired-mode emacs-lisp-mode)
-          do (evil-set-initial-state mode 'emacs))))
+  (evil-set-initial-state 'emacs-lisp-mode 'emacs)
+  (cl-loop for mode in '(eshell-mode shell-mode term-mode help-mode neotree-mode dired-mode emacs-lisp-mode)
+           do (evil-set-initial-state mode 'emacs)))
 
 (use-package counsel
   :init
@@ -52,8 +52,8 @@
           previous-line
           next-line)))
 
-(use-package evil-matchit
-  :init
-  (global-evil-matchit-mode 1))
+;;(use-package evil-matchit
+  ;;:init
+  ;;(global-evil-matchit-mode 1))
 
 (provide 'init-package)
