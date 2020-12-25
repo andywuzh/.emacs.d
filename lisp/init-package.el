@@ -16,19 +16,11 @@
 (use-package evil
   :init
   (evil-mode 1)
-  (evil-set-initial-state 'eshell-mode 'emacs)
-  (evil-set-initial-state 'shell-mode 'emacs)
-  (evil-set-initial-state 'term-mode 'emacs)
-  (evil-set-initial-state 'help-mode 'emacs)
-  (evil-set-initial-state 'neotree-mode 'emacs)
-  (evil-set-initial-state 'dired-mode 'emacs)
-  (evil-set-initial-state 'emacs-lisp-mode 'emacs))
-;;; 在部分mode中初始化evil-mode时为emacs state
-;(loop for (mode . state) in '((shell-mode . emacs)
-;                              (help-mode . emacs)
-;                              (neotree-mode . emacs)
-;                              (emacs-lisp-mode . emacs))
-;      do (evil-set-initial-state mode state)))
+  (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
+  ;;; 在部分mode中初始化evil-mode时为emacs state
+  (lambda ()
+    (loop for (mode . state ) in '(eshell-mode shell-mode term-mode help-mode neotree-mode dired-mode emacs-lisp-mode)
+          do (evil-set-initial-state mode 'emacs))))
 
 (use-package counsel
   :init
@@ -59,5 +51,9 @@
           backward-char
           previous-line
           next-line)))
+
+(use-package evil-matchit
+  :init
+  (global-evil-matchit-mode 1))
 
 (provide 'init-package)
