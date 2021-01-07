@@ -154,7 +154,8 @@
         ("C-c u" . lsp-ui-imenu)
         ("M-]" . lsp-ui-peek-find-definitions)
         ("M-[" . lsp-ui-peek-jump-backward)
-        ("C-c r" . lsp-ui-peek-find-references))
+        ("C-c r" . lsp-ui-peek-find-references)
+        ("C-c f" . lsp-format-buffer))
   :hook
   (lsp-mode . lsp-ui-mode)
   :init
@@ -166,10 +167,15 @@
   (setq lsp-treemacs-sync-mode 1)
   :commands lsp-treemacs-errors-list)
 
+(defun lsp-save-hook ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t))
+;(add-hook 'php-mode-hook #'lsp-save-hook)
+(add-hook 'lsp-ui-mode-hook #'lsp-save-hook)
+
 ;;; golang
 ;(use-package go-mode)
 (defun lsp-go-install-save-hooks ()
-  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  ;(add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
