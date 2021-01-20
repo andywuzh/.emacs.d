@@ -136,10 +136,7 @@
    )
   :commands (lsp lsp-deferred)
   :hook
-  ((web-mode
-    go-mode
-    php-mode
-    web-mode) . lsp-deferred)
+  ((web-mode go-mode php-mode) . lsp-deferred)
   (lsp-mode . lsp-enable-which-key-integration))
 
 (use-package lsp-ui
@@ -185,18 +182,18 @@
   :init
   (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-  :config
-  (add-hook 'web-mode-hook 'company-mode)
-  (add-hook 'web-mode-hook 'emmet-mode)
-  ;; (add-hook 'web-mode-hook 'evil-mode)
-  ;; (add-hook 'web-mode-hook 'lsp-mode)
-  )
+  :hook
+  (web-mode . company-mode)
+  (web-mode . emmet-mode))
+(add-hook 'web-mode-hook '(lambda ()
+                            (setq tab-width 2)
+                            (setq c-basic-offset 2)))
 
-;; (use-package prettier)
-;; (use-package js2-mode)
+(use-package prettier)
+(use-package js2-mode)
 ;; (use-package vue-mode)
 
-;; (use-package json-mode)
-;; (use-package yaml-mode)
+(use-package json-mode)
+(use-package yaml-mode)
 
 (provide 'init-program)

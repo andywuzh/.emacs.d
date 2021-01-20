@@ -19,7 +19,9 @@
 ;;; 字体
 ;(use-package cnfonts
 ;  :init (cnfonts-enable))
+
 (when (display-graphic-p)
+  (if *is-linux*
   (set-face-attribute
    'default nil
    ;; :font (font-spec :name "-PfEd-DejaVu Sans Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1"
@@ -35,5 +37,22 @@
                 :weight 'normal
                 :slant 'normal
                 :size 10.0))))
+
+  (if *is-mac*
+      (set-face-attribute
+       'default nil
+       :font (font-spec :name "-*-Monaco-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1"
+                        :weight 'normal
+                        :slant 'normal
+                        :size 11.5))
+    (dolist (charset '(kana han symbol cjk-misc bopomofo))
+      (set-fontset-font
+       (frame-parameter nil 'font)
+       charset
+       (font-spec :name "-*-Microsoft YaHei-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1"
+                  :weight 'normal
+                  :slant 'normal
+                  :size 13.5)))))
+
 
 (provide 'init-ui)
