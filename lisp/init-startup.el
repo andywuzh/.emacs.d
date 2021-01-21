@@ -17,4 +17,18 @@
 (setq make-backup-files nil
       auto-save-default nil)
 
+;;; PATH
+(when *is-mac*
+  (let ((mypaths (list
+                  (concat (getenv "HOME") "/.pyenv/plugins/pyenv-virtualenv/shims")
+                  (concat (getenv "HOME") "/.pyenv/shims")
+                  ".vendor/bin"
+                  (concat (getenv "HOME") "/local/bin")
+                  (concat (getenv "HOME") "/go/bin")
+                  "/usr/local/sbin"
+                  "/usr/local/bin")))
+    (setenv "PATH" (concat (mapconcat 'identity mypaths ":") ":" (getenv "PATH")))
+    (setq exec-path (append mypaths (list "." exec-directory)))))
+
 (provide 'init-startup)
+;;; init-startup.el ends here
