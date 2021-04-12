@@ -30,9 +30,10 @@
                                (delete-trailing-whitespace) ; 删除行尾空格
                                ))
 
-(if *is-mac*
+(if (and *is-mac* (file-exists-p "/usr/local/bin/gls"))
     (setq dired-use-ls-dired t
           insert-directory-program "/usr/local/bin/gls"
-          dired-listing-switches "-aBhl --group-directories-first"))
+          dired-listing-switches "-aBhl --group-directories-first")
+  (setq dired-use-ls-dired nil))
 
 (provide 'init-misc)
