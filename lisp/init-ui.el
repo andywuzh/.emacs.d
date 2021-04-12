@@ -7,7 +7,7 @@
 ;  :init (load-theme 'doom-one t))
 
 ;;; 透明
-(set-frame-parameter (selected-frame) 'alpha '(90 . 50))
+(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
 
 ;;; 状态栏
 (use-package smart-mode-line
