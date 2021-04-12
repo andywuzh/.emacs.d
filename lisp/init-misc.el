@@ -30,4 +30,9 @@
                                (delete-trailing-whitespace) ; 删除行尾空格
                                ))
 
+(if *is-mac*
+    (setq dired-use-ls-dired t
+          insert-directory-program "/usr/local/bin/gls"
+          dired-listing-switches "-aBhl --group-directories-first"))
+
 (provide 'init-misc)
