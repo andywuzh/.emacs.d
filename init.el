@@ -1,4 +1,8 @@
+;;; Package --- Summary
+;;; Commentary:
+;;; Code:
 ;;; 自定义包目录加载
+
 (add-to-list 'load-path
 	     (expand-file-name (concat user-emacs-directory "lisp")))
 
@@ -20,3 +24,5 @@
 
 (when (file-exists-p custom-file)
   (load-file custom-file))
+
+;;; init.el ends here

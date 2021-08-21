@@ -1,3 +1,6 @@
+;;; Package --- Summary
+;;; Commentary:
+;;; Code:
 (use-package emacs
   :config (defalias 'yes-or-no-p 'y-or-n-p))
 
@@ -27,9 +30,9 @@
 
 ;;; 保存文件时删除行尾空格
 (add-hook 'before-save-hook '(lambda()
-                               (delete-trailing-whitespace) ; 删除行尾空格
-                               ))
+                               (delete-trailing-whitespace))) ; 删除行尾空格
 
+;;; 修复dired在mac系统中无法打开目录的问题
 (if (and *is-mac* (file-exists-p "/usr/local/bin/gls"))
     (setq dired-use-ls-dired t
           insert-directory-program "/usr/local/bin/gls"
@@ -37,3 +40,4 @@
   (setq dired-use-ls-dired nil))
 
 (provide 'init-misc)
+;;; init-misc.el ends here

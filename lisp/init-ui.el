@@ -1,3 +1,7 @@
+;;; Package --- Summary
+;;; Commentary:
+;;; Code:
+
 ;;; 主题
 ;(use-package zenburn-theme
 ;  :init (load-theme 'zenburn t))
@@ -10,11 +14,20 @@
 (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
 
 ;;; 状态栏
-(use-package smart-mode-line
+;; (use-package smart-mode-line
+;;   :init
+;;   (setq sml/no-confirm-load-theme t
+;; 	    sml/theme 'respectful)
+;;   (sml/setup))
+(use-package doom-modeline
   :init
-  (setq sml/no-confirm-load-theme t
-	    sml/theme 'respectful)
-  (sml/setup))
+  (doom-modeline-mode 1)
+  :config
+  (setq doom-modeline-icon t
+        ;;doom-modeline-height 1
+        ;; doom-modeline-unicode-fallback t
+        ;; doom-modeline-lsp t
+        ))
 
 ;;; 字体
 ;(use-package cnfonts
@@ -56,3 +69,4 @@
 
 
 (provide 'init-ui)
+;;; init-ui.el ends here

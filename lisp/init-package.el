@@ -1,3 +1,11 @@
+;;; Package --- Summary
+;;; Commentary:
+;;; Code:
+
+(use-package exec-path-from-shell
+  :init
+  (exec-path-from-shell-initialize))
+
 (use-package restart-emacs)
 (use-package session
   :init
@@ -9,18 +17,18 @@
   :defer nil
   :config (which-key-mode))
 
-(use-package editorconfig
-  :config
-  (editorconfig-mode 1))
+;; (use-package editorconfig
+  ;; :config
+  ;; (editorconfig-mode 1))
 
-(use-package evil
-  :init
-  (evil-mode 1)
-  (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
-  ;;; 在部分mode中初始化evil-mode时为emacs state
-  (evil-set-initial-state 'emacs-lisp-mode 'emacs)
-  (cl-loop for mode in '(eshell-mode shell-mode term-mode help-mode neotree-mode dired-mode emacs-lisp-mode)
-           do (evil-set-initial-state mode 'emacs)))
+;; (use-package evil
+  ;; :init
+  ;; (evil-mode 1)
+  ;; (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
+  ;;;; 在部分mode中初始化evil-mode时为emacs state
+  ;; (evil-set-initial-state 'emacs-lisp-mode 'emacs)
+  ;; (cl-loop for mode in '(eshell-mode shell-mode term-mode help-mode neotree-mode dired-mode emacs-lisp-mode buffer-menu-mode)
+           ;; do (evil-set-initial-state mode 'emacs)))
 
 (use-package counsel
   :init
@@ -57,3 +65,4 @@
   ;;(global-evil-matchit-mode 1))
 
 (provide 'init-package)
+;;; init-package.el ends here

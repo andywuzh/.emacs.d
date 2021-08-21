@@ -61,9 +61,9 @@
 (use-package yasnippet-snippets
   :after yasnippet)
 
-(use-package neotree
-  :init
-  (global-set-key [f8] 'neotree-toggle))
+;; (use-package neotree
+;;   :init
+;;   (global-set-key [f8] 'neotree-toggle))
 
 ; treemacs
 (use-package treemacs
@@ -159,6 +159,8 @@
   (setq lsp-enable-symbol-highlighting t
         lsp-ui-doc-enable t
         lsp-lens-enable t))
+        ;; lsp-go-gopls-server-args '("-logfile" "/tmp/gopls.log" "-rpc.trace")
+        ;; lsp-log-io t))
 (use-package lsp-treemacs
   :init
   (setq lsp-treemacs-sync-mode 1)
@@ -171,8 +173,10 @@
 
 ;;; golang
 ;(use-package go-mode)
+;  :init
+;  (setq lsp-go-gopls-server-args '("-logfile" "/tmp/gopls.log" "-rpc.trace")))
 (defun lsp-go-install-save-hooks ()
-  ;(add-hook 'before-save-hook #'lsp-format-buffer t t)
+  ; (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
@@ -189,11 +193,12 @@
                             (setq tab-width 2)
                             (setq c-basic-offset 2)))
 
-(use-package prettier)
-(use-package js2-mode)
+;;(use-package prettier)
+;; (use-package js2-mode)
 ;; (use-package vue-mode)
 
 (use-package json-mode)
 (use-package yaml-mode)
 
 (provide 'init-program)
+;;; init-program.el ends here
