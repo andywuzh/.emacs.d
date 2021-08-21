@@ -12,3 +12,6 @@ cnfonts/
 recentf
 tramp
 lsp-cache/
+bookmarks
+projectile.cache
+lisp/auto-save.el
