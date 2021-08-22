@@ -39,5 +39,13 @@
           dired-listing-switches "-aBhl --group-directories-first")
   (setq dired-use-ls-dired nil))
 
+;;; 有道字典
+(use-package youdao-dictionary
+  :commands youdao-dictionary-play-voice-of-current-word
+  :bind (("C-c y" . youdao-dictionary-search-at-point-tooltip))
+  :init
+  (setq url-automatic-caching t
+        youdao-dictionary-use-chinese-word-segmentation t)) ;中文分词
+
 (provide 'init-misc)
 ;;; init-misc.el ends here

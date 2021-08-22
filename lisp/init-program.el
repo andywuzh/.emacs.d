@@ -67,14 +67,20 @@
 
 ; treemacs
 (use-package treemacs
-  :init
-  (with-eval-after-load 'winum
-    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
   :config
-  (progn
-    (treemacs-follow-mode t)
-    (treemacs-filewatch-mode t)
-    (treemacs-fringe-indicator-mode t))
+  (setq treemacs-missing-project-action 'remove
+        treemacs-sorting 'alphabetic-asc
+        treemacs-follow-after-init t
+        ;; treemacs-width 50
+        )
+  (treemacs-follow-mode t)
+  (treemacs-filewatch-mode t)
+  ;; (with-eval-after-load 'winum
+  ;;   (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  :commands (treemacs-follow-mode
+            treemacs-filewatch-mode
+            treemacs-fringe-indicator-mode
+            treemacs-git-mode)
   :bind
   (:map global-map
         ("M-0" . treemacs-select-window)

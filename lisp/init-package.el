@@ -82,5 +82,22 @@
                 (reusable-frames . visible)
                 (window-height . 0.3))))
 
+(use-package ibuffer
+  :bind (("C-x C-b" . ibuffer))
+  :init
+  (setq ibuffer-filter-group-name-face '(:inherit (font-lock-string-face bold)))
+  ;; :config
+  ;; (ibuffer-auto-mode 1)
+
+  )
+(use-package ibuffer-projectile
+  :after projectile
+  :hook ((ibuffer . (lambda ()
+                      (ibuffer-projectile-set-filter-groups)
+                      (unless (eq ibuffer-sorting-mode 'alphabetic)
+                        (ibuffer-do-sort-by-alphabetic)))))
+  :config
+  (setq ibuffer-projectile-prefix "Project: "))
+
 (provide 'init-package)
 ;;; init-package.el ends here
