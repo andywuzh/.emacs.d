@@ -25,6 +25,12 @@
          ("C-c d" . crux-duplicate-current-line-or-region)
          ("C-c k" . crux-smart-kill-line)))
 
+;; (use-package multi-term
+;;   :bind (("C-<escape>" . '(lambda ()
+;;                              (interactive)
+;;                              (multi-term-dedicated-toggle)
+;;                              (next-window)))))
+
 ;; (use-package switch-window
 ;;   :init
 ;;   (setq switch-window-threshold 3)
