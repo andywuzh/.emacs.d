@@ -17,6 +17,11 @@
 (setq gc-cons-threshold (* 1024 1024 100))  ; 100mb
 (setq read-process-output-max (* 1024 1024)) ; 1mb
 
+;; coding
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
 ;; 禁用默认备份
 (setq make-backup-files nil
       auto-save-default nil)

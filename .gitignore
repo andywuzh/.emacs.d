@@ -16,3 +16,5 @@ bookmarks
 projectile.cache
 lisp/auto-save.el
 url
+tutorial
+eln-cache

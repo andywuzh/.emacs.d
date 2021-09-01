@@ -29,7 +29,7 @@
   (setq company-minimum-prefix-length 1
         company-idle-delay 0.2
         company-tooltip-align-annotations t
-        ;company-show-numbers t
+        company-show-numbers t
         ;company-tooltip-limit 20
         company-dabbrev-downcase nil
         )
@@ -68,13 +68,16 @@
 ; treemacs
 (use-package treemacs
   :config
-  (setq treemacs-missing-project-action 'remove
+  (setq treemacs-collapse-dirs (if treemacs-python-executable 3 0)
+        treemacs-missing-project-action 'remove
         treemacs-sorting 'alphabetic-asc
         treemacs-follow-after-init t
         ;; treemacs-width 50
         )
   (treemacs-follow-mode t)
   (treemacs-filewatch-mode t)
+  (treemacs-fringe-indicator-mode 'always)
+  (treemacs-git-mode 'deferred)
   ;; (with-eval-after-load 'winum
   ;;   (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
   :commands (treemacs-follow-mode
