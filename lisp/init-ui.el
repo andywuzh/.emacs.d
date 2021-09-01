@@ -42,25 +42,25 @@
 ;; Mac will not move the Emacs window to a separate workspace, and
 ;; finally solve the problem that the native full-screen window on the
 ;; Mac platform causes the `make-frame' to slide left and right.
-(when (and *is-mac* (display-graphic-p))
-  (setq ns-use-native-fullscreen nil)
-  (setq ns-use-fullscreen-animation nil)
-  (run-at-time "5sec" nil
-               (lambda ()
-                 (let ((fullscreen (frame-parameter (selected-frame)
-                                                    'fullscreen)))
-                   ;; If emacs has in fullscreen status, maximized
-                   ;; window first, drag from Mac's single space.
-                   (when (memq fullscreen '(fullscreen fullboth))
-                     (set-frame-parameter (selected-frame)
-                                          'fullscreen 'maximized))
-                   ;; Manipulating a frame without waiting for the
-                   ;; fullscreen animation to complete can cause a
-                   ;; crash, or other unexpected behavior, on macOS
-                   ;; (bug #28496).
-                   (sleep-for 0.5)
-                   ;; Call `toggle-frame-fullscreen' to fullscreen emacs.
-                   (toggle-frame-fullscreen)))))
+;; (when (and *is-mac* (display-graphic-p))
+;;   (setq ns-use-native-fullscreen nil)
+;;   (setq ns-use-fullscreen-animation nil)
+;;   (run-at-time "5sec" nil
+;;                (lambda ()
+;;                  (let ((fullscreen (frame-parameter (selected-frame)
+;;                                                     'fullscreen)))
+;;                    ;; If emacs has in fullscreen status, maximized
+;;                    ;; window first, drag from Mac's single space.
+;;                    (when (memq fullscreen '(fullscreen fullboth))
+;;                      (set-frame-parameter (selected-frame)
+;;                                           'fullscreen 'maximized))
+;;                    ;; Manipulating a frame without waiting for the
+;;                    ;; fullscreen animation to complete can cause a
+;;                    ;; crash, or other unexpected behavior, on macOS
+;;                    ;; (bug #28496).
+;;                    (sleep-for 0.5)
+;;                    ;; Call `toggle-frame-fullscreen' to fullscreen emacs.
+;;                    (toggle-frame-fullscreen)))))
 
 ;;; 状态栏
 ;; (use-package smart-mode-line
