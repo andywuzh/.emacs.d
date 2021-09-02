@@ -27,7 +27,7 @@
         ("C-p" . company-select-previous))
   :init
   (setq company-minimum-prefix-length 1
-        company-idle-delay 0.2
+        company-idle-delay 0            ; setting 0 while using native-compile
         company-tooltip-align-annotations t
         company-show-numbers t
         ;company-tooltip-limit 20
