@@ -17,10 +17,6 @@
   :defer nil
   :config (which-key-mode))
 
-;; (use-package editorconfig
-  ;; :config
-  ;; (editorconfig-mode 1))
-
 ;; (use-package evil
   ;; :init
   ;; (evil-mode 1)
