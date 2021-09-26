@@ -9,6 +9,8 @@
   ;;; tab设置
   (setq-default tab-width 4
                 indent-tabs-mode nil)
+  ;; 高亮当前行
+  (global-hl-line-mode 1)
   ;;; 显示行号
   (setq display-line-numbers-type 'relative)  ; relative=相对, visual=正常
   (global-display-line-numbers-mode t)
