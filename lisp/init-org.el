@@ -12,7 +12,9 @@
    ;; Org Agenda文件目录
    org-agenda-files '("~/work/notes/")
    ;; org模式下编码语法高亮
-   org-src-fontify-natively t))
+   org-src-fontify-natively t
+   ;; 以indent模式打开所有org文件
+   org-startup-indented t))
 
 (provide 'init-org)
 ;;; init-org.el ends here
