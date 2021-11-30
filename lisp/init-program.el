@@ -203,8 +203,8 @@
                             (setq c-basic-offset 2)))
 
 (use-package prettier
-  :hook
-  (after-init #'global-prettier-mode)
+  ;; :hook
+  ;; (after-init #'global-prettier-mode)
   )
 ;; (use-package js2-mode)
 ;; (use-package vue-mode)
