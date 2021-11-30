@@ -3,12 +3,12 @@
 ;;; Code:
 
 ;;; 主题
-;(use-package zenburn-theme
-;  :init (load-theme 'zenburn t))
-(use-package gruvbox-theme
-  :init (load-theme 'gruvbox-dark-soft t))
-;(use-package doom-themes
-;  :init (load-theme 'doom-one t))
+;; (use-package zenburn-theme
+;;   :init (load-theme 'zenburn t))
+;; (use-package gruvbox-theme
+;;   :init (load-theme 'gruvbox-dark-soft t))
+(use-package doom-themes
+  :init (load-theme 'doom-one t))
 
 ;;; 透明
 (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
