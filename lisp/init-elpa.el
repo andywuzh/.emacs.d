@@ -4,13 +4,13 @@
 ;;; package配置
 
 (require 'package)
-; (add-to-list 'package-archives '("melpl" . "https://melpa.org/ackages/") t)
-;;(setq package-archives '(("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-;;			 ("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-;;			 ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
-(setq package-archives '(("melpa" . "http://elpa.emacs-china.org/melpa/")
-			 ("gnu" . "http://elpa.emacs-china.org/gnu/")
-			 ("org" . "http://elpa.emacs-china.org/org/")))
+(add-to-list 'package-archives '("melpl" . "https://melpa.org/ackages/") t)
+(setq package-archives '(("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+			 ("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+			 ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+;; (setq package-archives '(("melpa" . "http://elpa.emacs-china.org/melpa/")
+;; 			 ("gnu" . "http://elpa.emacs-china.org/gnu/")
+;; 			 ("org" . "http://elpa.emacs-china.org/org/")))
 
 
 ;;; 安装包初始化

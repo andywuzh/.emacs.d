@@ -202,7 +202,10 @@
                             (setq tab-width 2)
                             (setq c-basic-offset 2)))
 
-;;(use-package prettier)
+(use-package prettier
+  :hook
+  (after-init #'global-prettier-mode)
+  )
 ;; (use-package js2-mode)
 ;; (use-package vue-mode)
 
