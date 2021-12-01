@@ -128,6 +128,7 @@
 ;(add-hook 'php-mode-hook '(lambda ()
 ;                            (add-hook 'before-save-hook 'php-cs-fixer-before-save)
                                         ;                            ))
+;;; php
 (use-package php-mode)
 
 ;;; lsp
@@ -145,7 +146,7 @@
    )
   :commands (lsp lsp-deferred)
   :hook
-  ((web-mode go-mode php-mode) . lsp-deferred)
+  ((web-mode go-mode php-mode java-mode) . lsp-deferred)
   (lsp-mode . lsp-enable-which-key-integration))
 
 (use-package lsp-ui
@@ -202,11 +203,14 @@
                             (setq tab-width 2)
                             (setq c-basic-offset 2)))
 
+;;; java
+(use-package lsp-java)
+
 (use-package prettier
-  ;; :hook
-  ;; (after-init #'global-prettier-mode)
-  )
-;; (use-package js2-mode)
+  :config
+  (global-prettier-mode))
+
+(use-package js2-mode)
 ;; (use-package vue-mode)
 
 (use-package json-mode)
