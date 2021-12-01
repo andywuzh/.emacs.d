@@ -14,6 +14,10 @@
   ;;; 显示行号
   (setq display-line-numbers-type 'relative)  ; relative=相对, visual=正常
   (global-display-line-numbers-mode t)
+  ;;; 显示时间
+  (setq display-time-day-and-date t)
+  (setq display-time-format "%Y-%m-%d %I:%M%p")
+  (display-time-mode t)
   ;;; 内置的高亮匹配括号
   (show-paren-mode 1)
   ;;; 自动补齐括号等
