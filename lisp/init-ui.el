@@ -7,8 +7,23 @@
 ;;   :init (load-theme 'zenburn t))
 ;; (use-package gruvbox-theme
 ;;   :init (load-theme 'gruvbox-dark-soft t))
-(use-package doom-themes
-  :init (load-theme 'doom-one t))
+;; (use-package doom-themes
+;;   :init (load-theme 'doom-one t))
+(use-package modus-themes
+  :init
+  ;; Add all your customizations prior to loading the themes
+  (setq modus-themes-italic-constructs t
+        modus-themes-bold-constructs nil
+        modus-themes-region '(bg-only no-extend)
+        modus-themes-hl-line '(accented intense underline))
+
+  ;; Load the theme files before enabling a theme
+  (modus-themes-load-themes)
+  :config
+  ;; Load the theme of your choice:
+  (modus-themes-load-operandi) ; 亮
+  ;; (modus-themes-load-vivendi) ; 暗
+  :bind ("<f5>" . modus-themes-toggle))
 
 ;;; 透明
 (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
