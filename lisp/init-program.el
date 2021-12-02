@@ -218,5 +218,9 @@
 (use-package json-mode)
 (use-package yaml-mode)
 
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
+
 (provide 'init-program)
 ;;; init-program.el ends here
