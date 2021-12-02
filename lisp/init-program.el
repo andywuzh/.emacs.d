@@ -78,6 +78,8 @@
   (treemacs-filewatch-mode t)
   (treemacs-fringe-indicator-mode 'always)
   (treemacs-git-mode 'deferred)
+  (define-key treemacs-mode-map (kbd "j") 'treemacs-next-line)
+  (define-key treemacs-mode-map (kbd "k") 'treemacs-previous-line)
   ;; (with-eval-after-load 'winum
   ;;   (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
   :commands (treemacs-follow-mode
@@ -85,9 +87,7 @@
             treemacs-fringe-indicator-mode
             treemacs-git-mode)
   :bind
-  (("j" . treemacs-next-line)
-   ("k" . treemacs-previous-line)
-   :map global-map
+  (:map global-map
         ("M-0" . treemacs-select-window)
         ("C-x t t" . treemacs)))
 (use-package treemacs-projectile
