@@ -85,7 +85,9 @@
             treemacs-fringe-indicator-mode
             treemacs-git-mode)
   :bind
-  (:map global-map
+  (("j" . treemacs-next-line)
+   ("k" . treemacs-previous-line)
+   :map global-map
         ("M-0" . treemacs-select-window)
         ("C-x t t" . treemacs)))
 (use-package treemacs-projectile
