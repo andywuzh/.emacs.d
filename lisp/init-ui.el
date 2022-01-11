@@ -21,8 +21,8 @@
   (modus-themes-load-themes)
   :config
   ;; Load the theme of your choice:
-  (modus-themes-load-operandi) ; 亮
-  ;; (modus-themes-load-vivendi) ; 暗
+  ;; (modus-themes-load-operandi) ; 亮
+  (modus-themes-load-vivendi) ; 暗
   :bind ("<f5>" . modus-themes-toggle))
 
 ;;; 透明
