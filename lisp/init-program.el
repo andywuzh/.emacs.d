@@ -18,6 +18,13 @@
   (set-face-background 'git-gutter:added "green")
   (set-face-background 'git-gutter:deleted "red"))
 
+; tree-sitter
+(use-package tree-sitter)
+(use-package tree-sitter-langs
+  :init
+  (global-tree-sitter-mode))
+
+
 ; company
 (use-package company-quickhelp)
 (use-package company
@@ -138,17 +145,22 @@
   :config
   (setq
    lsp-enable-snippet t
+   lsp-use-plists t
    lsp-completion-provider :capf
-   ;lsp-idle-delay 0.500
+   lsp-idle-delay 0.500
    lsp-modeline-diagnostics-enable t
    lsp-auto-guess-root t
    lsp-enable-file-watchers t
    lsp-response-timeout 30
-   ;lsp-log-io t
-   )
-  :commands (lsp lsp-deferred)
+   lsp-log-io nil
+   lsp-vetur-format-default-formatter-css "none"
+   lsp-vetur-format-default-formatter-html "none"
+   lsp-vetur-format-default-formatter-js "none"
+   lsp-vetur-validation-template nil)
+  :commands
+  (lsp lsp-deferred)
   :hook
-  ((web-mode go-mode php-mode java-mode) . lsp-deferred)
+  ((web-mode go-mode php-mode java-mode) . lsp)
   (lsp-mode . lsp-enable-which-key-integration))
 
 (use-package lsp-ui
@@ -180,7 +192,7 @@
 
 (defun lsp-save-hook ()
   (add-hook 'before-save-hook #'lsp-format-buffer t t))
-;(add-hook 'php-mode-hook #'lsp-save-hook)
+;; (add-hook 'php-mode-hook #'lsp-save-hook)
 (add-hook 'lsp-ui-mode-hook #'lsp-save-hook)
 
 ;;; golang
@@ -192,28 +204,50 @@
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
-
 ;;; html/js/vue
 (use-package web-mode
   :init
   (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+  :config
+  (setq web-mode-markup-indent-offset 2
+        web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2
+        web-mode-enable-current-element-highlight t
+        web-mode-enable-current-column-highlight t
+        web-mode-comment-style 2)
+  (setq-default web-mode-comment-formats
+                '(("javascript" . "//")))
   :hook
   (web-mode . company-mode)
-  (web-mode . emmet-mode))
-(add-hook 'web-mode-hook '(lambda ()
-                            (setq tab-width 2)
-                            (setq c-basic-offset 2)))
+  (web-mode . emmet-mode)
+  (web-mode . prettier-mode))
+;; (add-hook 'web-mode-hook '(lambda ()
+;;                             (setq tab-width 2)
+;;                             (setq c-basic-offset 2)))
 
 ;;; java
-(use-package lsp-java)
+;(use-package lsp-java)
 
 (use-package prettier
   :config
   (global-prettier-mode))
 
 (use-package js2-mode)
-;; (use-package vue-mode)
+;; (use-package js2-mode
+;;   :init
+;;   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
+
+;; (use-package vue-mode
+;;   ;; :mode "\\.vue\\'"
+;;   :config
+;;   ;; (add-hook 'vue-mode-hook #'lsp-deferred)
+;;   (setq prettier-js-args '("--parser vue"))
+;;   :init
+;;   (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode)))
+;; (use-package vue-mode
+;;   :hook
+;;   (vue-mode . lsp-mode))
 
 (use-package json-mode)
 (use-package yaml-mode)
