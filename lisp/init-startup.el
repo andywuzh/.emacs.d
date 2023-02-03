@@ -25,6 +25,10 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;; LANG
+(setenv "LANG" "zh_CN.UTF-8")
+(set-locale-environment "zh_CN.UTF-8")
+
 ;; 禁用默认备份
 (setq make-backup-files nil
       auto-save-default nil)

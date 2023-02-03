@@ -14,15 +14,22 @@
   ;; Add all your customizations prior to loading the themes
   (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil
-        modus-themes-region '(bg-only no-extend)
-        modus-themes-hl-line '(accented intense underline))
+        ;; modus-themes-region '(bg-only no-extend)
+        ;; modus-themes-hl-line '(accented intense underline))
+        )
+
+  ;; Maybe define some palette overrides, such as by using our presets
+  ;; (setq modus-themes-common-palette-overrides modus-themes-preset-overrides-intense)
 
   ;; Load the theme files before enabling a theme
-  (modus-themes-load-themes)
+  ;; (modus-themes-load-themes)
   :config
   ;; Load the theme of your choice:
   ;; (modus-themes-load-operandi) ; 亮
-  (modus-themes-load-vivendi) ; 暗
+  ;; (modus-themes-load-operandi-deuteranopia) ; 亮, 色弱
+  ;; (modus-themes-load-vivendi) ; 暗
+  ;; (modus-themes-load-vivendi-deuteranopia) ; 暗, 色弱
+  (load-theme 'modus-vivendi-deuteranopia :no-confirm)
   :bind ("<f5>" . modus-themes-toggle))
 
 ;;; 透明

@@ -18,3 +18,5 @@ lisp/auto-save.el
 url
 tutorial
 eln-cache
+projects
+.dap-breakpoints

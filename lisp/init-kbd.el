@@ -12,7 +12,8 @@
 
 (use-package emacs
   :bind (("M-/" . comment-line)
-         ("M-?" . comment-or-uncomment-region)))
+         ("M-?" . comment-or-uncomment-region)
+         ("M-p" . ace-window)))
 
 (use-package drag-stuff
   :bind (("M-<up>" . drag-stuff-up)

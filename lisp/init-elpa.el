@@ -16,6 +16,7 @@
 ;;; 安装包初始化
 (unless (bound-and-true-p package--initialized)
   (package-initialize))
+(setq package-check-signature nil)
 
 ;;; 刷新安装包本地归档
 (unless package-archive-contents

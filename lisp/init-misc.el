@@ -53,5 +53,12 @@
   (setq url-automatic-caching t
         youdao-dictionary-use-chinese-word-segmentation t)) ;中文分词
 
+;;; 自动转换文件换行符
+(defun auto-convert-newline ()
+  (let ((coding-str (symbol-name buffer-file-coding-system)))
+    (when (string-match "-\\(?:doc\\|mac\\)$" coding-str)
+      (set-buffer-file-coding-system 'unix))))
+(add-hook 'find-file-hook 'auto-convert-newline)
+
 (provide 'init-misc)
 ;;; init-misc.el ends here
