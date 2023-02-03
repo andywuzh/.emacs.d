@@ -59,14 +59,14 @@
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
-; yasnippet
-(use-package yasnippet
-  :config
-  (yas-global-mode 1)
-  :commands yas-minor-mode
-  :hook ((go-mode php-mode) . yas-minor-mode))
-(use-package yasnippet-snippets
-  :after yasnippet)
+; ; yasnippet
+; (use-package yasnippet
+;   :config
+;   (yas-global-mode 1)
+;   :commands yas-minor-mode
+;   :hook ((go-mode php-mode) . yas-minor-mode))
+; (use-package yasnippet-snippets
+;   :after yasnippet)
 
 ;; (use-package neotree
 ;;   :init

@@ -16,6 +16,7 @@
 (require 'init-misc)
 (require 'init-program)
 (require 'init-org)
+(require 'init-lsp)
 
 (require 'init-ui)
 
