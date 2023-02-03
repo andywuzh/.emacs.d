@@ -138,93 +138,93 @@
 ;                            (add-hook 'before-save-hook 'php-cs-fixer-before-save)
                                         ;                            ))
 ;;; php
-(use-package php-mode)
+; (use-package php-mode)
 
 ;;; lsp
-(use-package lsp-mode
-  :config
-  (setq
-   lsp-enable-snippet t
-   lsp-use-plists t
-   lsp-completion-provider :capf
-   lsp-idle-delay 0.500
-   lsp-modeline-diagnostics-enable t
-   lsp-auto-guess-root t
-   lsp-enable-file-watchers t
-   lsp-response-timeout 30
-   lsp-log-io nil
-   lsp-vetur-format-default-formatter-css "none"
-   lsp-vetur-format-default-formatter-html "none"
-   lsp-vetur-format-default-formatter-js "none"
-   lsp-vetur-validation-template nil)
-  :commands
-  (lsp lsp-deferred)
-  :hook
-  ((web-mode go-mode php-mode java-mode) . lsp)
-  (lsp-mode . lsp-enable-which-key-integration))
+; (use-package lsp-mode
+;   :config
+;   (setq
+;    lsp-enable-snippet t
+;    lsp-use-plists t
+;    lsp-completion-provider :capf
+;    lsp-idle-delay 0.500
+;    lsp-modeline-diagnostics-enable t
+;    lsp-auto-guess-root t
+;    lsp-enable-file-watchers t
+;    lsp-response-timeout 30
+;    lsp-log-io nil
+;    lsp-vetur-format-default-formatter-css "none"
+;    lsp-vetur-format-default-formatter-html "none"
+;    lsp-vetur-format-default-formatter-js "none"
+;    lsp-vetur-validation-template nil)
+;   :commands
+;   (lsp lsp-deferred)
+;   :hook
+;   ((web-mode go-mode php-mode java-mode) . lsp)
+;   (lsp-mode . lsp-enable-which-key-integration))
 
-(use-package lsp-ui
-  :after
-  (lsp-mode)
-  :commands
-  (lsp-ui-mode)
-  :bind
-  (:map lsp-ui-mode-map
-        ([remap xref-find-references] . lsp-ui-peek-find-references)
-        ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-        ("C-c u" . lsp-ui-imenu)
-        ("M-]" . lsp-ui-peek-find-definitions)
-        ("M-[" . lsp-ui-peek-jump-backward)
-        ("C-c r" . lsp-ui-peek-find-references)
-        ("C-c f" . lsp-format-buffer))
-  :hook
-  (lsp-mode . lsp-ui-mode)
-  :init
-  (setq lsp-enable-symbol-highlighting t
-        lsp-ui-doc-enable t
-        lsp-lens-enable t))
-        ;; lsp-go-gopls-server-args '("-logfile" "/tmp/gopls.log" "-rpc.trace")
-        ;; lsp-log-io t))
-(use-package lsp-treemacs
-  :init
-  (setq lsp-treemacs-sync-mode 1)
-  :commands lsp-treemacs-errors-list)
+; (use-package lsp-ui
+;   :after
+;   (lsp-mode)
+;   :commands
+;   (lsp-ui-mode)
+;   :bind
+;   (:map lsp-ui-mode-map
+;         ([remap xref-find-references] . lsp-ui-peek-find-references)
+;         ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+;         ("C-c u" . lsp-ui-imenu)
+;         ("M-]" . lsp-ui-peek-find-definitions)
+;         ("M-[" . lsp-ui-peek-jump-backward)
+;         ("C-c r" . lsp-ui-peek-find-references)
+;         ("C-c f" . lsp-format-buffer))
+;   :hook
+;   (lsp-mode . lsp-ui-mode)
+;   :init
+;   (setq lsp-enable-symbol-highlighting t
+;         lsp-ui-doc-enable t
+;         lsp-lens-enable t))
+;         ;; lsp-go-gopls-server-args '("-logfile" "/tmp/gopls.log" "-rpc.trace")
+;         ;; lsp-log-io t))
+; (use-package lsp-treemacs
+;   :init
+;   (setq lsp-treemacs-sync-mode 1)
+;   :commands lsp-treemacs-errors-list)
 
-(defun lsp-save-hook ()
-  (add-hook 'before-save-hook #'lsp-format-buffer t t))
-;; (add-hook 'php-mode-hook #'lsp-save-hook)
-(add-hook 'lsp-ui-mode-hook #'lsp-save-hook)
+; (defun lsp-save-hook ()
+;   (add-hook 'before-save-hook #'lsp-format-buffer t t))
+; ;; (add-hook 'php-mode-hook #'lsp-save-hook)
+; (add-hook 'lsp-ui-mode-hook #'lsp-save-hook)
 
-;;; golang
-;(use-package go-mode)
-;  :init
-;  (setq lsp-go-gopls-server-args '("-logfile" "/tmp/gopls.log" "-rpc.trace")))
-(defun lsp-go-install-save-hooks ()
-  ; (add-hook 'before-save-hook #'lsp-format-buffer t t)
-  (add-hook 'before-save-hook #'lsp-organize-imports t t))
-(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+; ;;; golang
+; ;(use-package go-mode)
+; ;  :init
+; ;  (setq lsp-go-gopls-server-args '("-logfile" "/tmp/gopls.log" "-rpc.trace")))
+; (defun lsp-go-install-save-hooks ()
+;   ; (add-hook 'before-save-hook #'lsp-format-buffer t t)
+;   (add-hook 'before-save-hook #'lsp-organize-imports t t))
+; (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
-;;; html/js/vue
-(use-package web-mode
-  :init
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-  :config
-  (setq web-mode-markup-indent-offset 2
-        web-mode-css-indent-offset 2
-        web-mode-code-indent-offset 2
-        web-mode-enable-current-element-highlight t
-        web-mode-enable-current-column-highlight t
-        web-mode-comment-style 2)
-  (setq-default web-mode-comment-formats
-                '(("javascript" . "//")))
-  :hook
-  (web-mode . company-mode)
-  (web-mode . emmet-mode)
-  (web-mode . prettier-mode))
-;; (add-hook 'web-mode-hook '(lambda ()
-;;                             (setq tab-width 2)
-;;                             (setq c-basic-offset 2)))
+; ;;; html/js/vue
+; (use-package web-mode
+;   :init
+;   (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+;   (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+;   :config
+;   (setq web-mode-markup-indent-offset 2
+;         web-mode-css-indent-offset 2
+;         web-mode-code-indent-offset 2
+;         web-mode-enable-current-element-highlight t
+;         web-mode-enable-current-column-highlight t
+;         web-mode-comment-style 2)
+;   (setq-default web-mode-comment-formats
+;                 '(("javascript" . "//")))
+;   :hook
+;   (web-mode . company-mode)
+;   (web-mode . emmet-mode)
+;   (web-mode . prettier-mode))
+; ;; (add-hook 'web-mode-hook '(lambda ()
+; ;;                             (setq tab-width 2)
+; ;;                             (setq c-basic-offset 2)))
 
 ;;; java
 ;(use-package lsp-java)
