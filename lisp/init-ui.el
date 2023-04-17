@@ -106,11 +106,17 @@
 ;;   (awesome-tray-mode 1)
 ;;   (setq awesome-tray-active-modules '("location" "buffer-name" "belong" "file-path" "mode-name" "date")))
 
+;; tab
+(use-package awesome-tab
+  :load-path "site-lisp/awesome-tab"
+  :config
+  (awesome-tab-mode t))
+
 ;;; 字体
 (use-package cnfonts
-  :init (cnfonts-enable)
   :config
-  (setq cnfonts-profiles
+  (setq cnfonts-mode 1
+        cnfonts-profiles
         '("program" "org-mode" "read-book")))
 
 ;; (when (display-graphic-p)
