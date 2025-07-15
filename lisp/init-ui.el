@@ -1,6 +1,21 @@
 ;;; Package --- Summary
-;;; Commentary:
+;;; Commentary: UI配置
 ;;; Code:
+
+
+;;; 隐藏菜单栏/工具栏/滚动条
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(when (display-graphic-p)
+  (tool-bar-mode -1))
+(push '(menu-bar-lines . 0) default-frame-alist)
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
+(when (featurep 'ns)
+  (push '(ns-transparent-titlebar . t) default-frame-alist))
+
+(setq-default mode-line-format nil)
+
 
 ;;; 主题
 ;; (use-package zenburn-theme

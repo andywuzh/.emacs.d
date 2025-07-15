@@ -1,7 +1,7 @@
+;;; -*- lexical-binding: t; -*-
 ;;; Package --- Summary
-;;; Commentary:
+;;; Commentary: 自定义函数
 ;;; Code:
-;;; 自定义函数
 
 
 (defun open-with-vscode()

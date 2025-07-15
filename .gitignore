@@ -1,6 +1,5 @@
 auto-save-list/
-custom.el
-custom.mac.el
+custom.*.el
 elpa/
 eshell/
 transient/

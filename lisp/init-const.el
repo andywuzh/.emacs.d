@@ -1,5 +1,6 @@
-;;; Package --- Summary
-;;; Commentary:
+;;; -*- lexical-binding: t; -*-
+;;; Package --- Summary 
+;;; Commentary: 定义常量
 ;;; Code:
 
 (defconst *is-mac* (eq system-type 'darwin))

@@ -1,6 +1,13 @@
 ;;; Package --- Summary
-;;; Commentary:
+;;; Commentary: 杂项配置
 ;;; Code:
+
+;; 选中文字后, 输入任意一个字符会替换选中的文字; 与其他编辑器保持一致
+(delete-selection-mode 1)
+
+(unless window-system
+  (xterm-mouse-mode 1))
+
 (use-package emacs
   :config (defalias 'yes-or-no-p 'y-or-n-p))
 

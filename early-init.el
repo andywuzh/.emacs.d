@@ -1,7 +1,7 @@
+;;; -*- lexical-binding: t -*-
 ;;; Package --- Summary
-;;; Commentary:
+;;; Commentary: 加载init.el前执行
 ;;; Code:
-;;; 加载init.el前执行
 
 (setq gc-cons-threshold most-positive-fixnum)
 
@@ -17,16 +17,9 @@
 (setq frame-inhibit-implied-resize t)
 (setq disabled-command-function nil)
 
-(set-language-environment "UTF-8")
-
-; 隐藏菜单栏/工具栏/滚动条
-(push '(menu-bar-lines . 0) default-frame-alist)
-(push '(tool-bar-lines . 0) default-frame-alist)
-(push '(vertical-scroll-bars) default-frame-alist)
-(when (featurep 'ns)
-  (push '(ns-transparent-titlebar . t) default-frame-alist))
-
-(setq-default mode-line-format nil)
+; 词法绑定: nil=使用旧的动态分析的lisp方言(解析器), t=使用现代的lisp方言(解析器)
+; FIXME 貌似没生效，还是必须在每个.el文件第一行明确"; -*- lexical-binding: t -*-" 
+(setq lexical-binding t)
 
 (provide 'early-init)
 ;;; early-init.el ends here
