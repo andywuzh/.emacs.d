@@ -44,6 +44,15 @@
 ;;; 保存文件时删除行尾空格
 (add-hook 'before-save-hook '(lambda()
                                (delete-trailing-whitespace))) ; 删除行尾空格
+;;; 自动保存文件
+(use-package auto-save
+  :load-path "site-lisp/auto-save"
+  :demand
+  :config
+  (auto-save-enable)
+  (setq auto-save-silent t)
+  (setq auto-save-delete-trailing-whitespace t)
+  )
 
 ;;; 修复dired在mac系统中无法打开目录的问题
 (if (and *is-mac* (file-exists-p "/usr/local/bin/gls"))

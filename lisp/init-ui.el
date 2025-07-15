@@ -129,7 +129,8 @@
   :demand
   :config
   (awesome-tray-mode 1)
-  (setq awesome-tray-active-modules '("location" "buffer-name" "belong" "file-path" "mode-name" "date")))
+  (setq awesome-tray-date-format "%m-%d %H:%M")
+  (setq awesome-tray-active-modules '("location" "buffer-name" "git" "belong" "file-path" "mode-name" "date")))
 
 ;; tab
 ;; (use-package awesome-tab

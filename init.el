@@ -19,9 +19,10 @@
 ;(require 'init-misc)
 
 ; 编程
+(require 'init-lsp)
 ;(require 'init-package)
 
-;(require 'init-lsp)
+
 ;(require 'init-program)
 ;(require 'init-org)
 
