@@ -18,37 +18,48 @@
   (set-face-background 'git-gutter:added "green")
   (set-face-background 'git-gutter:deleted "red"))
 
+                                        ; tree-sitter
+;; (use-package with-proxy)
+;; (with-proxy
+ ;; :http-server "127.0.0.1:33210"
+ ;; :no-proxy '("localhost" "127.0.0.1" "192.168.*" "10.*")
+ ;; (use-package tree-sitter)
+ ;; (use-package tree-sitter-langs
+   ;; :init
+   ;; (global-tree-sitter-mode)))
+
 ; tree-sitter
-(use-package tree-sitter)
-(use-package tree-sitter-langs
-  :init
-  (global-tree-sitter-mode))
+ (use-package tree-sitter)
+ (use-package tree-sitter-langs
+   :init
+   (global-tree-sitter-mode))
 
 
 ; company
-(use-package company-quickhelp)
-(use-package company
-  :bind
-  (:map company-active-map
-        ("C-n" . company-select-next)
-        ("C-p" . company-select-previous))
-  :init
-  (setq company-minimum-prefix-length 1
-        company-idle-delay 0            ; setting 0 while using native-compile
-        company-tooltip-align-annotations t
-        company-show-numbers t
-        ;company-tooltip-limit 20
-        company-dabbrev-downcase nil
-        )
-  :hook
-  (company-mode . company-quickhelp-mode)
-  :config
-  (global-company-mode t))
+;; (use-package company-quickhelp)
+;; (use-package company
+;;   :bind
+;;   (:map company-active-map
+;;         ("C-n" . company-select-next)
+;;         ("C-p" . company-select-previous))
+;;   :init
+;;   (setq company-minimum-prefix-length 1
+;;         company-idle-delay 0            ; setting 0 while using native-compile
+;;         company-tooltip-align-annotations t
+;;         company-show-numbers t
+;;         ;company-tooltip-limit 20
+;;         company-dabbrev-downcase nil
+;;         )
+;;   :hook
+;;   (company-mode . company-quickhelp-mode)
+;;   :config
+;;   (global-company-mode t))
 
 ; projectile
 (use-package projectile
   :init
   (projectile-mode +1)
+  (setq projectile-enable-caching t)
   (setq projectile-switch-project-action #'projectile-dired
         projectile-completion-system 'ivy)
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
@@ -205,26 +216,26 @@
 ; (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
 ; ;;; html/js/vue
-; (use-package web-mode
-;   :init
-;   (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
-;   (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-;   :config
-;   (setq web-mode-markup-indent-offset 2
-;         web-mode-css-indent-offset 2
-;         web-mode-code-indent-offset 2
-;         web-mode-enable-current-element-highlight t
-;         web-mode-enable-current-column-highlight t
-;         web-mode-comment-style 2)
-;   (setq-default web-mode-comment-formats
-;                 '(("javascript" . "//")))
-;   :hook
-;   (web-mode . company-mode)
-;   (web-mode . emmet-mode)
-;   (web-mode . prettier-mode))
-; ;; (add-hook 'web-mode-hook '(lambda ()
-; ;;                             (setq tab-width 2)
-; ;;                             (setq c-basic-offset 2)))
+(use-package web-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+  :config
+  (setq web-mode-markup-indent-offset 2
+        web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2
+        web-mode-enable-current-element-highlight t
+        web-mode-enable-current-column-highlight t
+        web-mode-comment-style 2)
+  (setq-default web-mode-comment-formats
+                '(("javascript" . "//")))
+  :hook
+  (web-mode . company-mode)
+  (web-mode . emmet-mode)
+  (web-mode . prettier-mode))
+(add-hook 'web-mode-hook '(lambda ()
+                            (setq tab-width 2)
+                            (setq c-basic-offset 2)))
 
 ;;; java
 ;(use-package lsp-java)
@@ -251,6 +262,7 @@
 
 (use-package json-mode)
 (use-package yaml-mode)
+(use-package cmake-mode)
 
 (use-package editorconfig
   :config

@@ -9,15 +9,15 @@
              )
 
 (require 'init-const)
+(require 'init-funcs)
 (require 'init-startup)
 (require 'init-elpa)
 (require 'init-package)
 (require 'init-kbd)
 (require 'init-misc)
+(require 'init-lsp)
 (require 'init-program)
 (require 'init-org)
-(require 'init-lsp)
-
 (require 'init-ui)
 
 (when *is-linux*

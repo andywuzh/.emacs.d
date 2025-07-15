@@ -33,6 +33,14 @@
 (setq make-backup-files nil
       auto-save-default nil)
 
+;;; LIBRARY
+(setenv "LIBRARY_PATH"
+	(string-join
+	 '("/opt/homebrew/opt/gcc/lib/gcc/current"
+	   "/opt/homebrew/opt/libgccjit/lib/gcc/current"
+	   "/opt/homebrew/opt/gcc/lib/gcc/current/gcc/aarch64-apple-darwin23/14")
+	 ":"))
+
 ;;; PATH
 ;; (when *is-mac*
 ;;   (let ((mypaths (list

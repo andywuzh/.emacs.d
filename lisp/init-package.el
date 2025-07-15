@@ -3,14 +3,25 @@
 ;;; Code:
 
 (use-package exec-path-from-shell
-  :init
+  :if
+  (memq window-system '(mac ns x))
+  :config
+  (dolist (var '("PATH" "MANPATH" "LANG" "LC_CTYPE"))
+    (add-to-list 'exec-path-from-shell-variables var))
+  (setq exec-path-from-shell-arguments nil)
   (exec-path-from-shell-initialize))
 
 (use-package restart-emacs)
 (use-package session
   :init
   (setq session-save-file (expand-file-name ".emacs.session" (getenv "HOME")))
-  (add-hook 'after-init-hook 'session-initialize)
+  (add-hook 'after-init-hook 'session-initialize))
+
+(use-package desktop
+  :init
+  ;;(setq desktop-path (expand-file-name ".cache" user-emacs-directory)
+  ;;      desktop-base-file-name (concat ".emacs.desktop." system-configuration)
+  ;;      desktop-base-lock-name (concat ".emacs.desktop." system-configuration ".lock"))
   (desktop-save-mode t))
 
 (use-package which-key
@@ -64,8 +75,10 @@
   :config
   (setq vterm-max-scrollback 100000))
 (use-package vterm-toggle
+  :defer t
   :after vterm
-  :bind (("C-<escape>" . vterm-toggle))
+  :bind (("C-<escape>" . vterm-toggle)
+         ("C-`" . vterm-toggle))
   :config
   (setq vterm-toggle-fullscreen-p nil)
   (add-to-list 'display-buffer-alist
