@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;;; Package --- Summary
 ;;; Commentary: UI配置
 ;;; Code:
@@ -24,28 +26,28 @@
 ;;   :init (load-theme 'gruvbox-dark-soft t))
 ;; (use-package doom-themes
 ;;   :init (load-theme 'doom-one t))
-(use-package modus-themes
-  :init
-  ;; Add all your customizations prior to loading the themes
-  (setq modus-themes-italic-constructs t
-        modus-themes-bold-constructs nil
-        ;; modus-themes-region '(bg-only no-extend)
-        ;; modus-themes-hl-line '(accented intense underline))
-        )
+;; (use-package modus-themes
+;;   :init
+;;   ;; Add all your customizations prior to loading the themes
+;;   (setq modus-themes-italic-constructs t
+;;         modus-themes-bold-constructs nil
+;;         ;; modus-themes-region '(bg-only no-extend)
+;;         ;; modus-themes-hl-line '(accented intense underline))
+;;         )
 
-  ;; Maybe define some palette overrides, such as by using our presets
-  ;; (setq modus-themes-common-palette-overrides modus-themes-preset-overrides-intense)
+;;   ;; Maybe define some palette overrides, such as by using our presets
+;;   ;; (setq modus-themes-common-palette-overrides modus-themes-preset-overrides-intense)
 
-  ;; Load the theme files before enabling a theme
-  ;; (modus-themes-load-themes)
-  :config
-  ;; Load the theme of your choice:
-  ;; (modus-themes-load-operandi) ; 亮
-  ;; (modus-themes-load-operandi-deuteranopia) ; 亮, 色弱
-  ;; (modus-themes-load-vivendi) ; 暗
-  ;; (modus-themes-load-vivendi-deuteranopia) ; 暗, 色弱
-  (load-theme 'modus-vivendi-deuteranopia :no-confirm)
-  :bind ("<f5>" . modus-themes-toggle))
+;;   ;; Load the theme files before enabling a theme
+;;   ;; (modus-themes-load-themes)
+;;   :config
+;;   ;; Load the theme of your choice:
+;;   ;; (modus-themes-load-operandi) ; 亮
+;;   ;; (modus-themes-load-operandi-deuteranopia) ; 亮, 色弱
+;;   ;; (modus-themes-load-vivendi) ; 暗
+;;   ;; (modus-themes-load-vivendi-deuteranopia) ; 暗, 色弱
+;;   (load-theme 'modus-vivendi-deuteranopia :no-confirm)
+;;   :bind ("<f5>" . modus-themes-toggle))
 
 ;;; 透明
 (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
@@ -105,15 +107,17 @@
 ;;   (setq sml/no-confirm-load-theme t
 ;; 	    sml/theme 'respectful)
 ;;   (sml/setup))
-(use-package doom-modeline
-  :init
-  (doom-modeline-mode 1)
-  :config
-  (setq doom-modeline-icon t
-        ;;doom-modeline-height 1
-        ;; doom-modeline-unicode-fallback t
-        ;; doom-modeline-lsp t
-        ))
+
+;;(use-package doom-modeline
+;;  :init
+;;  (doom-modeline-mode 1)
+;;  :config
+;;  (setq doom-modeline-icon t
+;;        ;;doom-modeline-height 1
+;;        ;; doom-modeline-unicode-fallback t
+;;        ;; doom-modeline-lsp t
+;;        ))
+
 ;; (use-package awesome-tray
 ;;   :load-path "site/awesome-tray"
 ;;   :demand
@@ -122,17 +126,17 @@
 ;;   (setq awesome-tray-active-modules '("location" "buffer-name" "belong" "file-path" "mode-name" "date")))
 
 ;; tab
-(use-package awesome-tab
-  :load-path "site-lisp/awesome-tab"
-  :config
-  (awesome-tab-mode t))
+;; (use-package awesome-tab
+;;   :load-path "site-lisp/awesome-tab"
+;;   :config
+;;   (awesome-tab-mode t))
 
 ;;; 字体
-(use-package cnfonts
-  :config
-  (setq cnfonts-mode 1
-        cnfonts-profiles
-        '("program" "org-mode" "read-book")))
+;; (use-package cnfonts
+;;   :config
+;;   (setq cnfonts-mode 1
+;;         cnfonts-profiles
+;;         '("program" "org-mode" "read-book")))
 
 ;; (when (display-graphic-p)
 ;;   (if *is-linux*

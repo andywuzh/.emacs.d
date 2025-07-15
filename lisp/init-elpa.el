@@ -1,16 +1,14 @@
+;; -*- lexical-binding: t; -*-
+
 ;;; Package --- Summary
-;;; Commentary:
+;;; Commentary: ELPA配置
 ;;; Code:
-;;; package配置
+
 
 (require 'package)
-(add-to-list 'package-archives '("melpl" . "https://melpa.org/ackages/") t)
-(setq package-archives '(("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-			 ("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			 ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
-;; (setq package-archives '(("melpa" . "http://elpa.emacs-china.org/melpa/")
-;; 			 ("gnu" . "http://elpa.emacs-china.org/gnu/")
-;; 			 ("org" . "http://elpa.emacs-china.org/org/")))
+(setq package-archives '(("gnu"    . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("nongnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")
+                         ("melpa"  . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
 ;;; 设置代理, 临时!
 ;;(setq url-proxy-services
@@ -25,9 +23,9 @@
 ;; (setq url-proxy-services
 ;;      '(("http" . "192.168.1.220:7897")
 ;;        ("https" . "192.168.1.220:7897")))
-(setq url-proxy-services
-      '(("http" . "127.0.0.1:7890")
-        ("https" . "27.0.0.1:7890")))
+;; (setq url-proxy-services
+;;       '(("http" . "127.0.0.1:7890")
+;;         ("https" . "127.0.0.1:7890")))
 
 
 ;;; 不检查签名!

@@ -12,15 +12,17 @@
 (require 'init-const)
 (require 'init-funcs)
 (require 'init-runtime)
-;(require 'init-elpa)
+(require 'init-elpa)
 
 ; 交互配置
-;(require 'init-ui)
+(require 'init-ui)
 ;(require 'init-kbd)
+
+;(require 'init-misc)
 
 ; 编程
 ;(require 'init-package)
-;(require 'init-misc)
+
 ;(require 'init-lsp)
 ;(require 'init-program)
 ;(require 'init-org)
