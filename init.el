@@ -4,10 +4,8 @@
 ;;; Code:
 ;;; 自定义包目录加载
 
-(add-to-list 'load-path
-	         (expand-file-name (concat user-emacs-directory "lisp"))
-             ;;(expand-file-name (concat user-emacs-directory "site"))
-             )
+(add-to-list `load-path
+	         (expand-file-name (concat user-emacs-directory "lisp")))
 ; 基础配置
 (require 'init-const)
 (require 'init-funcs)

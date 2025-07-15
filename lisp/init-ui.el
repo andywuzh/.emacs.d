@@ -118,12 +118,12 @@
 ;;        ;; doom-modeline-lsp t
 ;;        ))
 
-;; (use-package awesome-tray
-;;   :load-path "site/awesome-tray"
-;;   :demand
-;;   :config
-;;   (awesome-tray-mode 1)
-;;   (setq awesome-tray-active-modules '("location" "buffer-name" "belong" "file-path" "mode-name" "date")))
+(use-package awesome-tray
+  :load-path "site-lisp/awesome-tray"
+  :demand
+  :config
+  (awesome-tray-mode 1)
+  (setq awesome-tray-active-modules '("location" "buffer-name" "belong" "file-path" "mode-name" "date")))
 
 ;; tab
 ;; (use-package awesome-tab

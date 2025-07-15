@@ -1,0 +1,4 @@
+.cache/
+auto-save-list/
+elpa/
+custom.*.el

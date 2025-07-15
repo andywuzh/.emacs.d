@@ -12,6 +12,13 @@
 ; 启动时，禁止加载package，后续自行处理加载
 (setq package-enable-at-startup nil)
 
+;;;; 启动耗时；M-x benchmark-init/show-durations-tree
+;; (require 'package)
+;; (setq package-user-dir (expand-file-name (concat ".cache/elpa/" (system-name) "-" system-configuration) user-emacs-directory))
+;; (unless (bound-and-true-p package--initialized)
+;;   (package-initialize))
+;; (require 'benchmark-init)
+
 (setq load-prefer-newer noninteractive)
 
 (setq frame-inhibit-implied-resize t)

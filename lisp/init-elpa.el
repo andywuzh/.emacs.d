@@ -29,7 +29,7 @@
 
 
 ;;; 不检查签名!
-(setq package-check-signature nil)
+;; (setq package-check-signature nil)
 
 ;;; 设置安装路径
 (setq package-user-dir (expand-file-name (concat ".cache/elpa/" (system-name) "-" system-configuration) user-emacs-directory))
