@@ -56,7 +56,7 @@
   )
 
 ;;; 透明
-(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+; (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
 
 ;; 全屏
 ;; @see https://www.emacswiki.org/emacs/EmacsForMacOS
@@ -129,14 +129,39 @@
   :demand
   :config
   (awesome-tray-mode 1)
-  (setq awesome-tray-date-format "%m-%d %H:%M")
-  (setq awesome-tray-active-modules '("location" "buffer-name" "git" "belong" "file-path" "mode-name" "date")))
+  (setq awesome-tray-date-format "%m-%d %H:%M %a")
+  (setq awesome-tray-active-modules
+        '("anzu" "location" "git" "belong" "file-path" "mode-name" "date")))
+
+;; 搜索
+(use-package anzu
+  :config
+  (global-anzu-mode +1))
 
 ;; tab
-;; (use-package awesome-tab
-;;   :load-path "site-lisp/awesome-tab"
-;;   :config
-;;   (awesome-tab-mode t))
+(use-package awesome-tab
+  :load-path "site-lisp/awesome-tab"
+  :demand
+  :config
+  (defun awesome-tab-hide-tab (x)
+    (let ((name (format "%s" x)))
+      (or
+       ;; Hide tab if current window is not dedicated window.
+       (window-dedicated-p (selected-window))
+
+       (string-prefix-p "*Completions*" name)
+       (string-prefix-p "*lsp-bridge" name)
+
+       (string-prefix-p "*sdcv" name)
+       (string-prefix-p "*helm" name)
+       (string-prefix-p "*flycheck" name)
+
+       ;; Hide blacklist if emacs version < 27 (use header-line).
+       (and (eq awesome-tab-display-line 'header-line)
+            (or (string-prefix-p "*Compile-Log*" name)
+                (string-prefix-p "*Flycheck" name)))
+       )))
+  (awesome-tab-mode t))
 
 ;;; 字体
 ;; (use-package cnfonts

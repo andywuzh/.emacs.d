@@ -5,13 +5,13 @@
 ;; PATH
 (use-package exec-path-from-shell
   ;:if (memq window-system '(mac ns x))  ; macosx/linux系统
-  ;:if (my/graphic-env-p)                ; 图形
+  ;:if (custom/graphic-env-p)                ; 图形
   :init
-  (setq exec-path-from-shell-debug t)
+  ; (setq exec-path-from-shell-debug t)
   ; (message "[Debug] Init exec-path-from-shell...")
   ; :config
   ; (message "[Debug] Loading exec-path-from-shell...")
-  ; (when (my/daemon-mode-p)
+  ; (when (custom/daemon-mode-p)
   ;  (message "[Debug] Initializing exec-path-from-shell for daemon...")
   (setq exec-path-from-shell-variables '("PATH" "MANPATH")
         exec-path-from-shell-arguments '("--login") ; fish必须使用"-l"/"--login"以明确登录模式

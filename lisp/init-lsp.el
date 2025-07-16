@@ -22,12 +22,15 @@
 
 (require 'lsp-bridge)
 ;; lsp-bridge basic config
-; (setq lsp-bridge-enable-log t)
-(setq lsp-bridge-python-command "~/.pyenv/versions/3.12.4/bin/python3")
+; (setq lsp-bridge-enable-debug t) 	; 测试
+(setq acm-enable-tabnine nil)		; 禁用默认开启的tabnine补全
 
-;; language server
-(setq lsp-bridge-python-lsp-server "jedi")
-
+; ATTENTION lsp-bridge本身使用的python配置, 两种方式
+; 1. 使用uv                                        ;
+;   - 软链接site-lisp/lsp-bridge/python-lsp-bridge到某个$PATH下，比如~/.local/bin/python-lsp-bridge
+;   - cd site-list/lsp-bridge && uv venv -p 3.13 # venv版本尽量与lsp-bridge/pyproject.toml配置兼容
+; 2. 指定python路径，可使用pyenv
+; (setq lsp-bridge-python-command "~/.pyenv/versions/3.12.4/bin/python3")
 
 ;; lsp-bridge remote config
 ;(setq lsp-bridge-enable-with-tramp t)
@@ -37,6 +40,13 @@
 ;(setq lsp-bridge-remote-log "/var/log/lsp-bridge/lsp-bridge.log")
 
 (global-lsp-bridge-mode)
+
+
+;; language server
+(setq lsp-bridge-python-lsp-server "jedi")
+(setq lsp-bridge-python-multi-lsp-server "jedi_ruff")
+
+
 
 
 (provide 'init-lsp)
