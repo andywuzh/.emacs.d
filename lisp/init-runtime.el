@@ -13,6 +13,12 @@
 (setenv "LANG" "zh_CN.UTF-8")
 (set-locale-environment "zh_CN.utf8")
 
+;; PATH
+;; ATTENTION 已在init-misc中通过exec-path-from-shell处理，可能会影响启动速度
+; (let ((custom-path (concat (getenv "HOME") "/.local/bin")))
+;   (setenv "PATH" (concat custom-path path-separator (getenv "PATH")))
+;   (add-to-list 'exec-path custom-path))
+
 ; 启动时不显示关于界面(about-emacs)
 (setq inhibit-startup-screen t)
 

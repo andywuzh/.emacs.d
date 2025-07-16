@@ -1,5 +1,6 @@
 ;;; -*- lexical-binding: t; -*-
-;;; Package --- Summary 
+
+;;; Package --- Summary
 ;;; Commentary: 定义常量
 ;;; Code:
 

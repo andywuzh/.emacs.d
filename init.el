@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;;; Package --- Summary 
+;;; Package --- Summary
 ;;; Commentary:
 ;;; Code:
 ;;; 自定义包目录加载
@@ -16,7 +16,7 @@
 (require 'init-ui)
 ;(require 'init-kbd)
 
-;(require 'init-misc)
+(require 'init-misc)
 
 ; 编程
 (require 'init-lsp)
