@@ -55,11 +55,11 @@
 
 ;;; use-package配置
 (setq use-package-always-ensure t
-      use-package-always-defer t
+      ;; use-package-always-defer t
       use-package-always-demand nil
       use-package-expand-minimally t
-      use-package-verbose t)
-
+      ;; use-package-verbose t
+      )
 ;;; use-package初始化
 (require 'use-package)
 

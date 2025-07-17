@@ -16,11 +16,11 @@
   (setq exec-path-from-shell-variables '("PATH" "MANPATH")
         exec-path-from-shell-arguments '("--login") ; fish必须使用"-l"/"--login"以明确登录模式
         exec-path-from-shell-shell-name "/usr/bin/fish")  ; 显示指定fish
-    (exec-path-from-shell-initialize)
-    (message "[Debug] PATH: %s" (getenv "PATH"))
-    (message "[Debug] MANPATH: %s" (getenv "MANPATH"))
-    (message "[Debug] exec-path: %s" exec-path))
-;)
+  (exec-path-from-shell-initialize)
+    ;; (message "[Debug] PATH: %s" (getenv "PATH"))
+    ;; (message "[Debug] MANPATH: %s" (getenv "MANPATH"))
+    ;; (message "[Debug] exec-path: %s" exec-path)
+)
 
 
 ;; 选中文字后, 输入任意一个字符会替换选中的文字; 与其他编辑器保持一致
@@ -66,14 +66,14 @@
 ; (add-hook 'before-save-hook '(lambda()
 ;                                (delete-trailing-whitespace))) ; 删除行尾空格
 ;;; 自动保存文件
-(use-package auto-save
-  :load-path "site-lisp/auto-save"
-  :demand
-  :config
-  (auto-save-enable)
-  (setq auto-save-silent t)
-  (setq auto-save-delete-trailing-whitespace t)
-  )
+;;(use-package auto-save
+;;  :load-path "site-lisp/auto-save"
+;;  :demand
+;;  :config
+;;  (auto-save-enable)
+;;  (setq auto-save-silent t)
+;;  (setq auto-save-delete-trailing-whitespace t)
+;;  )
 
 ;;; 修复dired在mac系统中无法打开目录的问题
 (if (and *is-mac* (file-exists-p "/usr/local/bin/gls"))

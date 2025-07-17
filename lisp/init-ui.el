@@ -133,11 +133,6 @@
   (setq awesome-tray-active-modules
         '("anzu" "location" "git" "belong" "file-path" "mode-name" "date")))
 
-;; 搜索
-(use-package anzu
-  :config
-  (global-anzu-mode +1))
-
 ;; tab
 (use-package awesome-tab
   :load-path "site-lisp/awesome-tab"
@@ -150,6 +145,7 @@
        (window-dedicated-p (selected-window))
 
        (string-prefix-p "*Completions*" name)
+       ;; (string-prefix-p "*Minibuf" name)
        (string-prefix-p "*lsp-bridge" name)
 
        (string-prefix-p "*sdcv" name)
@@ -162,6 +158,18 @@
                 (string-prefix-p "*Flycheck" name)))
        )))
   (awesome-tab-mode t))
+
+;; 搜索
+(use-package anzu
+  :defer nil
+  :config
+  (global-anzu-mode +1)
+  (set-face-attribute 'anzu-mode-line nil
+                      :foreground "yellow" :weight 'bold)
+  (define-key isearch-mode-map [remap isearch-query-replace]  #'anzu-isearch-query-replace)
+  (define-key isearch-mode-map [remap isearch-query-replace-regexp] #'anzu-isearch-query-replace-regexp)
+  )
+
 
 ;;; 字体
 ;; (use-package cnfonts

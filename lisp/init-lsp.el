@@ -4,7 +4,7 @@
 ;;; Commentary: LSP配置
 ;;; Code:
 
-(add-to-list 'load-path (concat user-emacs-directory "site-lisp/lsp-bridge"))
+(add-to-list 'load-path (expand-file-name "site-lisp/lsp-bridge" user-emacs-directory))
 
 ;; (use-package posframe)
 
@@ -22,11 +22,14 @@
 
 (require 'lsp-bridge)
 ;; lsp-bridge basic config
-; (setq lsp-bridge-enable-debug t) 	; 测试
+;; (setq lsp-bridge-enable-debug t) 	; 测试
+;;(setq lsp-bridge-log-level 'debug) 	; 日志等级
 (setq acm-enable-tabnine nil)		; 禁用默认开启的tabnine补全
+(setq lsp-bridge-user-langserver-dir (expand-file-name "lisp/lsp/langserver" user-emacs-directory))
+(setq lsp-bridge-user-multiserver-dir (expand-file-name "lisp/lsp/multierver" user-emacs-directory))
 
 ; ATTENTION lsp-bridge本身使用的python配置, 两种方式
-; 1. 使用uv                                        ;
+; 1. 使用uv
 ;   - 软链接site-lisp/lsp-bridge/python-lsp-bridge到某个$PATH下，比如~/.local/bin/python-lsp-bridge
 ;   - cd site-list/lsp-bridge && uv venv -p 3.13 # venv版本尽量与lsp-bridge/pyproject.toml配置兼容
 ; 2. 指定python路径，可使用pyenv
@@ -39,13 +42,24 @@
 ;(setq lsp-bridge-remote-python-file "/root/lsp-bridge/lsp-bridge.py")
 ;(setq lsp-bridge-remote-log "/var/log/lsp-bridge/lsp-bridge.log")
 
+;; 保存时格式化
+;; (add-hook 'before-save-hook #'lsp-bridge-code-format)
+;; (setq lsp-bridge-enable-auto-format-code t)
+;; (setq lsp-bridge-auto-format-code-idle 30)
+(setq lsp-bridge-find-def-select-in-open-windows t)
+
 (global-lsp-bridge-mode)
 
 
-;; language server
+;;; language server
+;; python
 (setq lsp-bridge-python-lsp-server "jedi")
 (setq lsp-bridge-python-multi-lsp-server "jedi_ruff")
 
+;; json
+(use-package json-mode
+  :init
+  (setq js-indent-level 2))
 
 
 
