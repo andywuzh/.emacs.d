@@ -20,6 +20,7 @@
 
 ; 编程
 (require 'init-lsp)
+(require 'init-terminal)
 ;(require 'init-package)
 
 

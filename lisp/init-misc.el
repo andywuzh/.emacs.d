@@ -57,14 +57,15 @@
                               (?\[ . ?\]))))
 
 ;;; 高亮匹配括号
-(use-package highlight-parentheses
-  :init
-  (highlight-parentheses-mode t)
-  (global-highlight-parentheses-mode t))
+;; (use-package highlight-parentheses
+;;   :init
+;;   (highlight-parentheses-mode t)
+;;   (global-highlight-parentheses-mode t))
 
-;;; 保存文件时删除行尾空格
-; (add-hook 'before-save-hook '(lambda()
-;                                (delete-trailing-whitespace))) ; 删除行尾空格
+;;; 保存文件时删除行尾空格, 文末仅保留一行
+(add-hook 'before-save-hook (lambda () (delete-trailing-whitespace) (delete-trailing-lines)))
+
+
 ;;; 自动保存文件
 ;;(use-package auto-save
 ;;  :load-path "site-lisp/auto-save"
