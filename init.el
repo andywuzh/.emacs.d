@@ -6,28 +6,31 @@
 
 (add-to-list `load-path
 	         (expand-file-name (concat user-emacs-directory "lisp")))
-; 基础配置
+;; 基础配置
 (require 'init-const)
 (require 'init-funcs)
 (require 'init-runtime)
 (require 'init-elpa)
 
-; 交互配置
+;; 交互配置
 (require 'init-ui)
 ;(require 'init-kbd)
 
 (require 'init-misc)
 
-; 编程
+;; 编程
 (require 'init-lsp)
 (require 'init-terminal)
-;(require 'init-package)
+;;(require 'init-package)
+
+;; 项目
+(require 'init-project)
 
 
-;(require 'init-program)
-;(require 'init-org)
+;;(require 'init-program)
+;;(require 'init-org)
 
-; 自定义配置(.gitignore中忽略，不提交，但syncthing同步)
+;; 自定义配置(.gitignore中忽略，不提交，但syncthing同步)
 (when *is-linux*
   (setq custom-file (expand-file-name "custom.linux.el" user-emacs-directory)))
 (when *is-mac*

@@ -39,6 +39,7 @@
         ;; lsp-bridge-remote-python-file "/root/lsp-bridge/lsp-bridge.py"
         ;; lsp-bridge-remote-log "/var/log/lsp-bridge/lsp-bridge.log"
 
+
         ;; python-lsp-bridge
         ;; ATTENTION lsp-bridge本身使用的python配置, 两种方式
         ;; 1. 使用uv
@@ -67,20 +68,6 @@
   :config
   (global-lsp-bridge-mode)
   )
-
-;; 保存时格式化
-;; (add-hook 'before-save-hook #'lsp-bridge-code-format)
-
-;; 快捷键
-;; (define-key lsp-bridge-mode-map (kbd "C-c l r") #'lsp-bridge-rename)
-;; (define-key lsp-bridge-mode-map (kbd "C-c l a") #'lsp-bridge-code-action)
-;; (define-key lsp-bridge-mode-map (kbd "C-c l f") #'lsp-bridge-code-format)
-;; (define-key lsp-bridge-mode-map (kbd "M-]") #'lsp-bridge-find-def)
-;; (define-key lsp-bridge-mode-map (kbd "M-[") #'lsp-bridge-find-def-return)
-;; (define-key lsp-bridge-mode-map (kbd "C-M-]") #'lsp-bridge-find-references)
-
-;(global-lsp-bridge-mode)
-
 
 ;; json
 (use-package json-mode

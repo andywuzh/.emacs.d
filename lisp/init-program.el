@@ -70,14 +70,14 @@
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
-; ; yasnippet
-; (use-package yasnippet
-;   :config
-;   (yas-global-mode 1)
-;   :commands yas-minor-mode
-;   :hook ((go-mode php-mode) . yas-minor-mode))
-; (use-package yasnippet-snippets
-;   :after yasnippet)
+; yasnippet
+(use-package yasnippet
+  :config
+  (yas-global-mode 1)
+  :commands yas-minor-mode
+  :hook ((go-mode php-mode) . yas-minor-mode))
+(use-package yasnippet-snippets
+  :after yasnippet)
 
 ;; (use-package neotree
 ;;   :init
@@ -152,59 +152,59 @@
 ; (use-package php-mode)
 
 ;;; lsp
-; (use-package lsp-mode
-;   :config
-;   (setq
-;    lsp-enable-snippet t
-;    lsp-use-plists t
-;    lsp-completion-provider :capf
-;    lsp-idle-delay 0.500
-;    lsp-modeline-diagnostics-enable t
-;    lsp-auto-guess-root t
-;    lsp-enable-file-watchers t
-;    lsp-response-timeout 30
-;    lsp-log-io nil
-;    lsp-vetur-format-default-formatter-css "none"
-;    lsp-vetur-format-default-formatter-html "none"
-;    lsp-vetur-format-default-formatter-js "none"
-;    lsp-vetur-validation-template nil)
-;   :commands
-;   (lsp lsp-deferred)
-;   :hook
-;   ((web-mode go-mode php-mode java-mode) . lsp)
-;   (lsp-mode . lsp-enable-which-key-integration))
+(use-package lsp-mode
+  :config
+  (setq
+   lsp-enable-snippet t
+   lsp-use-plists t
+   lsp-completion-provider :capf
+   lsp-idle-delay 0.500
+   lsp-modeline-diagnostics-enable t
+   lsp-auto-guess-root t
+   lsp-enable-file-watchers t
+   lsp-response-timeout 30
+   lsp-log-io nil
+   lsp-vetur-format-default-formatter-css "none"
+   lsp-vetur-format-default-formatter-html "none"
+   lsp-vetur-format-default-formatter-js "none"
+   lsp-vetur-validation-template nil)
+  :commands
+  (lsp lsp-deferred)
+  :hook
+  ((web-mode go-mode php-mode java-mode) . lsp)
+  (lsp-mode . lsp-enable-which-key-integration))
 
-; (use-package lsp-ui
-;   :after
-;   (lsp-mode)
-;   :commands
-;   (lsp-ui-mode)
-;   :bind
-;   (:map lsp-ui-mode-map
-;         ([remap xref-find-references] . lsp-ui-peek-find-references)
-;         ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-;         ("C-c u" . lsp-ui-imenu)
-;         ("M-]" . lsp-ui-peek-find-definitions)
-;         ("M-[" . lsp-ui-peek-jump-backward)
-;         ("C-c r" . lsp-ui-peek-find-references)
-;         ("C-c f" . lsp-format-buffer))
-;   :hook
-;   (lsp-mode . lsp-ui-mode)
-;   :init
-;   (setq lsp-enable-symbol-highlighting t
-;         lsp-ui-doc-enable t
-;         lsp-lens-enable t))
-;         ;; lsp-go-gopls-server-args '("-logfile" "/tmp/gopls.log" "-rpc.trace")
-;         ;; lsp-log-io t))
-; (use-package lsp-treemacs
-;   :init
-;   (setq lsp-treemacs-sync-mode 1)
-;   :commands lsp-treemacs-errors-list)
+(use-package lsp-ui
+  :after
+  (lsp-mode)
+  :commands
+  (lsp-ui-mode)
+  :bind
+  (:map lsp-ui-mode-map
+        ([remap xref-find-references] . lsp-ui-peek-find-references)
+        ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+        ("C-c u" . lsp-ui-imenu)
+        ("M-]" . lsp-ui-peek-find-definitions)
+        ("M-[" . lsp-ui-peek-jump-backward)
+        ("C-c r" . lsp-ui-peek-find-references)
+        ("C-c f" . lsp-format-buffer))
+  :hook
+  (lsp-mode . lsp-ui-mode)
+  :init
+  (setq lsp-enable-symbol-highlighting t
+        lsp-ui-doc-enable t
+        lsp-lens-enable t))
+        ;; lsp-go-gopls-server-args '("-logfile" "/tmp/gopls.log" "-rpc.trace")
+        ;; lsp-log-io t))
+(use-package lsp-treemacs
+  :init
+  (setq lsp-treemacs-sync-mode 1)
+  :commands lsp-treemacs-errors-list)
 
-; (defun lsp-save-hook ()
-;   (add-hook 'before-save-hook #'lsp-format-buffer t t))
-; ;; (add-hook 'php-mode-hook #'lsp-save-hook)
-; (add-hook 'lsp-ui-mode-hook #'lsp-save-hook)
+(defun lsp-save-hook ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t))
+;; (add-hook 'php-mode-hook #'lsp-save-hook)
+(add-hook 'lsp-ui-mode-hook #'lsp-save-hook)
 
 ; ;;; golang
 ; ;(use-package go-mode)
@@ -233,9 +233,15 @@
   (web-mode . company-mode)
   (web-mode . emmet-mode)
   (web-mode . prettier-mode))
+<<<<<<< Updated upstream
 (add-hook 'web-mode-hook '(lambda ()
                             (setq tab-width 2)
                             (setq c-basic-offset 2)))
+=======
+;; (add-hook 'web-mode-hook '(lambda ()
+;;                             (setq tab-width 2)
+;;                             (setq c-basic-offset 2)))
+>>>>>>> Stashed changes
 
 ;;; java
 ;(use-package lsp-java)
