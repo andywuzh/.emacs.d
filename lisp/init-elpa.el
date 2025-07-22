@@ -54,7 +54,7 @@
   (package-install 'use-package))
 
 ;;; use-package配置
-(setq use-package-always-ensure t
+(setq ;; use-package-always-ensure t
       ;; use-package-always-defer t
       use-package-always-demand nil
       use-package-expand-minimally t

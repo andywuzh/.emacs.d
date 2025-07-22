@@ -199,7 +199,7 @@
 
 (use-package awesome-tray
   :load-path "site-lisp/awesome-tray"
-  :demand
+  :demand t
   :config
   (awesome-tray-mode 1)
   (setq awesome-tray-date-format "%m-%d %H:%M %a")
