@@ -20,3 +20,4 @@ eln-cache
 projects
 .dap-breakpoints
 .stfolder/
+.projectile-cache.eld
