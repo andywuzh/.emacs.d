@@ -8,10 +8,15 @@
 
 ;; (use-package posframe)
 
-; yasnippet
+;; yasnippet
 (use-package yasnippet
+  :ensure t
   :config
   (yas-global-mode 1))
+
+;; yasnippet-snippets
+(use-package yasnippet-snippets
+  :ensure t)
 
 (use-package markdown-mode
   :ensure t
@@ -38,7 +43,6 @@
         ;; lsp-bridge-remote-python-command "/usr/bin/python3"
         ;; lsp-bridge-remote-python-file "/root/lsp-bridge/lsp-bridge.py"
         ;; lsp-bridge-remote-log "/var/log/lsp-bridge/lsp-bridge.log"
-
 
         ;; python-lsp-bridge
         ;; ATTENTION lsp-bridge本身使用的python配置, 两种方式

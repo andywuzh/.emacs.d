@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: python header
+# key: pyheader
+# --
+# File: `(file-name-nondirectory (buffer-file-name))`
+# Author: andywu
+# Date: `(format-time-string "%Y-%m-%d %H:%M")`
+# Descriptsion: $0

@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: sacol
+# key: sacol
+# --
+sa.Column(
+    "${1:column_name}",
+    ${2:column_type},
+    nullable=False,
+    server_default=$3,
+    comment="${4:comment}",
+),

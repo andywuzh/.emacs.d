@@ -1,0 +1,27 @@
+# -*- mode: snippet -*-
+# name: satimecol
+# key: satimecol
+# --
+sa.Column(
+    "created_at",
+    sa.DATETIME(),
+    nullable=False,
+    server_default=sa.func.now(),
+    comment="首次创建时间",
+),
+sa.Column(
+    "updated_at",
+    sa.DATETIME(),
+    nullable=False,
+    # server_default=sa.func.now(),
+    # server_onupdate=sa.func.now(),
+    server_default=sa.text(
+        "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+    ),  # MySQL专用
+    comment="最后更新时间",
+),
+sa.PrimaryKeyConstraint("id"),
+mysql_collate="utf8mb4_general_ci",
+mysql_default_charset="utf8mb4",
+mysql_engine="InnoDB",
+if_not_exists=True,

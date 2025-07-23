@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: saauditcol
+# key: saauditcol
+# --
+sa.Column(
+    "created_by",
+    mysql.INTEGER(unsigned=True),
+    nullable=False,
+    server_default=sa.text("0"),
+    comment="创建人",
+),
+sa.Column(
+    "updated_by",
+    mysql.INTEGER(unsigned=True),
+    nullable=False,
+    server_default=sa.text("0"),
+    comment="修改人",
+),
