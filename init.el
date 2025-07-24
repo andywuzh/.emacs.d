@@ -18,10 +18,12 @@
 
 (require 'init-misc)
 
+(require 'init-package)
+
 ;; 编程
 (require 'init-lsp)
 (require 'init-terminal)
-;;(require 'init-package)
+
 
 ;; 项目
 (require 'init-project)

@@ -277,8 +277,8 @@
 ;;   :ensure t)
 
 (use-package treemacs-magit
-  :after (treemacs magit)
-  :ensure t)
+  :ensure t
+  :after (treemacs magit))
 
 (treemacs-start-on-boot)
 

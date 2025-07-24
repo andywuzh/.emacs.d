@@ -77,12 +77,10 @@
 ;;  )
 
 ;;; 修复dired在mac系统中无法打开目录的问题
-;;; FIXME 以下处理有问题，导致在linux中也无法正常使用dired
-;; (if (and *is-mac* (file-exists-p "/usr/local/bin/gls"))
-;;     (setq dired-use-ls-dired t
-;;           insert-directory-program "/usr/local/bin/gls"
-;;           dired-listing-switches "-aBhl --group-directories-first")
-;;   (setq dired-use-ls-dired nil))
+(if (and *is-mac* (file-exists-p "/usr/local/bin/gls"))
+    (setq dired-use-ls-dired t
+          insert-directory-program "/usr/local/bin/gls"
+          dired-listing-switches "-aBhl --group-directories-first"))
 
 ;;; 有道字典
 ; (use-package youdao-dictionary
