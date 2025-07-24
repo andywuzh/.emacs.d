@@ -43,11 +43,11 @@
   (setq display-line-numbers-type 'relative)  ; relative=相对, visual=正常
   (global-display-line-numbers-mode t)
   ;;; 显示时间
-  (setq display-time-day-and-date t)
-  (setq display-time-format "%Y-%m-%d %I:%M%p")
-  (display-time-mode t)
+  ;; (setq display-time-day-and-date t)
+  ;; (setq display-time-format "%Y-%m-%d %I:%M%p")
+  ;; (display-time-mode t)
   ;;; 内置的高亮匹配括号
-  (show-paren-mode 1)
+  ;; (show-paren-mode 1)
   ;;; 自动补齐括号等
   (electric-pair-mode 1)
   (setq electric-pair-pairs '((?\" . ?\")
@@ -77,11 +77,12 @@
 ;;  )
 
 ;;; 修复dired在mac系统中无法打开目录的问题
-(if (and *is-mac* (file-exists-p "/usr/local/bin/gls"))
-    (setq dired-use-ls-dired t
-          insert-directory-program "/usr/local/bin/gls"
-          dired-listing-switches "-aBhl --group-directories-first")
-  (setq dired-use-ls-dired nil))
+;;; FIXME 以下处理有问题，导致在linux中也无法正常使用dired
+;; (if (and *is-mac* (file-exists-p "/usr/local/bin/gls"))
+;;     (setq dired-use-ls-dired t
+;;           insert-directory-program "/usr/local/bin/gls"
+;;           dired-listing-switches "-aBhl --group-directories-first")
+;;   (setq dired-use-ls-dired nil))
 
 ;;; 有道字典
 ; (use-package youdao-dictionary

@@ -14,7 +14,7 @@
 
 ;; 交互配置
 (require 'init-ui)
-;(require 'init-kbd)
+(require 'init-kbd)
 
 (require 'init-misc)
 
@@ -37,7 +37,6 @@
   (setq custom-file (expand-file-name "custom.mac.el" user-emacs-directory)))
 (when *is-windows*
   (setq custom-file (expand-file-name "custom.windows.el" user-emacs-directory)))
-
 (when (file-exists-p custom-file)
   (load-file custom-file))
 
