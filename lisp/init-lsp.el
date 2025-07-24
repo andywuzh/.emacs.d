@@ -11,9 +11,10 @@
 ;; yasnippet
 (use-package yasnippet
   :ensure t
+  :init
+  (setq yas-triggers-in-field t)
   :config
   (yas-global-mode 1))
-
 ;; yasnippet-snippets
 (use-package yasnippet-snippets
   :ensure t)

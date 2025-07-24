@@ -3,7 +3,7 @@
 # key: sacretable
 # --
 op.create_table(
-    "${0:table_name}",
+    "${1:table_name}",
     sa.Column(
         "id",
         mysql.INTEGER(unsigned=True),
@@ -13,5 +13,5 @@ op.create_table(
         primary_key=True,
         comment="",
     ),
-    ${YAS-TRIGGER:satimecol},
+    ${2:satimecol}$0
 )
