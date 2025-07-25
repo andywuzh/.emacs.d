@@ -1,23 +1,42 @@
-auto-save-list/
-custom.*.el
+# syncthing
+.stfolder/
+
+# elpa
+.cache
 elpa/
+
+auto-save-list/
+
 eshell/
 transient/
-.session
+
+# lsp
 .lsp-session-v1
-projectile-bookmarks.eld
-.cache
+lsp-cache/
+
 cnfonts/
 recentf
 tramp
-lsp-cache/
 bookmarks
-projectile.cache
+
 lisp/auto-save.el
 url
 tutorial
 eln-cache
-projects
+
+# dap
 .dap-breakpoints
-.stfolder/
+
+# project
+projects
+projectile.cache
 .projectile-cache.eld
+projectile-bookmarks.eld
+
+# session
+easysession/
+.session
+history
+
+# customize
+custom.*.el

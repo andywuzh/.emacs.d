@@ -91,6 +91,14 @@
 
 
 
+;; indentation
+(use-package highlight-indent-guides
+  :ensure t
+  :init
+  (setq highlight-indent-guides-method 'bitmap) ; 'fill/'column/'character/'bitmap
+  :hook
+  (prog-mode-hook . highlight-indent-guides-mode))
+
 
 ;;; 主题
 ;; (use-package zenburn-theme

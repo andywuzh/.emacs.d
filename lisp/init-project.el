@@ -85,7 +85,10 @@
         ;; cache
         projectile-enable-caching 'persistent ; t=仅当前emacs，'persistent=不同emacs
         projectile-auto-update-cache t
+        projectile-indexing-method 'alien ; 高效索引
         ;; switch projects
+        projectile-auto-discover t
+        projectile-require-project-root t
         projectile-switch-project-action #'projectile-find-file ; projectile-find-file/projectile-dired/...
         ;; completion
         ;; projectile-completion-system 'ivy
@@ -114,7 +117,8 @@
 ;; counsel 补全
 (use-package counsel-projectile
   :ensure t
-  :init
+  :after (projectile)
+  :config
   (counsel-projectile-mode t))
 
 ;; company
@@ -204,6 +208,7 @@
           treemacs-hide-dot-git-directory          t
           treemacs-indentation                     2
           treemacs-indentation-string              " "
+          treemacs-indent-guide-style              "line"
           treemacs-is-never-other-window           nil
           treemacs-max-git-entries                 5000
           treemacs-missing-project-action          'ask
@@ -261,20 +266,22 @@
   :bind
   (:map global-map
         ("M-0"       . treemacs-select-window)
+        ("C-x t +"   . treemacs-extra-wide-toggle)
         ("C-x t 1"   . treemacs-delete-other-windows)
         ("C-x t t"   . treemacs)
         ("C-x t d"   . treemacs-select-directory)
         ("C-x t B"   . treemacs-bookmark)
         ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag)))
+        ("C-x t M-t" . treemacs-find-tag))
+  )
 
 (use-package treemacs-projectile
   :after (treemacs projectile)
   :ensure t)
 
-;; (use-package treemacs-icons-dired
-;;   :hook (dired-mode . treemacs-icons-dired-enable-once)
-;;   :ensure t)
+(use-package treemacs-icons-dired
+  :ensure t
+  :hook (dired-mode . treemacs-icons-dired-enable-once))
 
 (use-package treemacs-magit
   :ensure t
