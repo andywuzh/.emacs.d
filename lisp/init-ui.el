@@ -130,6 +130,7 @@
 ;;    (load-theme 'modus-vivendi-deuteranopia :no-confirm)
 ;;    :bind ("<f5>" . modus-themes-toggle))
 (use-package catppuccin-theme
+  :ensure t
   :init
   (load-theme 'catppuccin :no-confirm)
   (setq catppuccin-flavor 'mocha) ; latte, frappe, macchiato, mocha
@@ -242,6 +243,7 @@
 
 ;; 搜索
 (use-package anzu
+  :ensure t
   :defer nil
   :config
   (global-anzu-mode +1)

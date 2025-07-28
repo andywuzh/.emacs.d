@@ -76,6 +76,7 @@
 
 ;; json
 (use-package json-mode
+  :ensure t
   :init
   (setq js-indent-level 2))
 

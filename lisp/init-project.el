@@ -10,11 +10,6 @@
   :config
   (editorconfig-mode 1))
 
-;; (use-package with-proxy)
-;; (with-proxy
-;; :http-server "127.0.0.1:33210"
-;; :no-proxy '("localhost" "127.0.0.1" "192.168.*" "10.*")
-
 ;; magit
 (use-package magit
   :ensure t
@@ -64,7 +59,7 @@
 ;;   :ensure t
 ;;   ;; Allow interactively selecting available compilation targets from the current
 ;;   ;; project type.
-;;   :bind ( :map project-prefix-map
+;;   :bind (:map project-prefix-map
 ;;           ("RET" . projection-multi-compile)))
 
 ;; (use-package projection-multi-embark
@@ -262,7 +257,9 @@
       (`(t . _)
        (treemacs-git-mode 'simple)))
 
-    (treemacs-hide-gitignored-files-mode nil))
+    (treemacs-hide-gitignored-files-mode nil)
+    (treemacs-start-on-boot))
+
   :bind
   (:map global-map
         ("M-0"       . treemacs-select-window)
@@ -287,7 +284,6 @@
   :ensure t
   :after (treemacs magit))
 
-(treemacs-start-on-boot)
 
 ;; (use-package flycheck
 ;;   :init

@@ -4,6 +4,7 @@
 
 ;; PATH
 (use-package exec-path-from-shell
+  :ensure t
   ;:if (memq window-system '(mac ns x))  ; macosx/linux系统
   ;:if (custom/graphic-env-p)                ; 图形
   :init
@@ -20,7 +21,12 @@
     ;; (message "[Debug] PATH: %s" (getenv "PATH"))
     ;; (message "[Debug] MANPATH: %s" (getenv "MANPATH"))
     ;; (message "[Debug] exec-path: %s" exec-path)
-)
+  )
+
+;; (use-package with-proxy)
+;; (with-proxy
+;; :http-server "127.0.0.1:33210"
+;; :no-proxy '("localhost" "127.0.0.1" "192.168.*" "10.*")
 
 
 ;; 选中文字后, 输入任意一个字符会替换选中的文字; 与其他编辑器保持一致
