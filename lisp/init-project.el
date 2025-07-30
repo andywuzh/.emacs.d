@@ -73,6 +73,7 @@
 ;; projectile
 (use-package projectile
   :ensure t
+  :demand t
   :init
   (setq projectile-project-search-path '("~/work/github/" "~/work/hulai/codes/" "~/work/y9/codes/" "~/work/sg/codes/")
         projectile-cleanup-known-projects nil ; 是否开启自动清理（已移除或重命名的）项目
@@ -114,7 +115,8 @@
   :ensure t
   :after (projectile)
   :config
-  (counsel-projectile-mode t))
+  (counsel-projectile-mode t)
+  )
 
 ;; company
 ;; (use-package company-quickhelp)

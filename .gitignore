@@ -38,5 +38,8 @@ easysession/
 .session
 history
 
+# EAF
+eaf/
+
 # customize
 custom.*.el

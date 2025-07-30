@@ -24,10 +24,10 @@
 (require 'init-lsp)
 (require 'init-terminal)
 
-
 ;; 项目
 (require 'init-project)
 
+(require 'init-eaf)
 
 ;;(require 'init-program)
 ;;(require 'init-org)
