@@ -20,15 +20,23 @@
   ;; (eaf-bind-key take_photo "p" eaf-camera-keybinding)
   ;; (eaf-bind-key nil "M-q" eaf-browser-keybinding) ;; unbind, see more in the Wiki
   )
-(use-package eaf-browser
-  :ensure nil
-  :after eaf)
-(use-package eaf-image-viewer
-  :ensure nil
-  :after eaf)
-(use-package eaf-terminal
-  :ensure nil
-  :after eaf)
+
+;; eaf-browser eaf-image-viewer eaf-terminal eaf-file-manager eaf-mindmap eaf-mind-elixir eaf-markmap eaf-pyqterminal
+(dolist (app '(eaf-browser eaf-file-manager eaf-mindmap eaf-mind-elixir eaf-markmap))
+  (eval `(use-package ,app
+    :ensure nil
+    :after eaf
+    :defer t)))
+
+;; (use-package eaf-browser
+;;   :ensure nil
+;;   :after eaf)
+;; (use-package eaf-image-viewer
+;;   :ensure nil
+;;   :after eaf)
+;; (use-package eaf-terminal
+;;   :ensure nil
+;;   :after eaf)
 
 
 (provide 'init-eaf)
