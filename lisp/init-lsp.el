@@ -74,11 +74,57 @@
   (global-lsp-bridge-mode)
   )
 
+;; prettier
+(use-package prettier
+  :ensure t
+  :config
+  (global-prettier-mode))
+
+
 ;; json
 (use-package json-mode
   :ensure t
   :init
   (setq js-indent-level 2))
+
+(use-package emmet-mode
+  :ensure t)
+
+;; html/js/vue
+(use-package web-mode
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+  :config
+  (setq web-mode-script-padding 0       ; <script>下不缩进
+        web-mode-markup-indent-offset 2
+        web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2
+        web-mode-enable-current-element-highlight t
+        web-mode-enable-current-column-highlight t
+        web-mode-comment-style 2)
+  (setq-default web-mode-comment-formats
+                '(("javascript" . "//")))
+  :hook
+  ;; (web-mode . company-mode)
+  (web-mode . emmet-mode)
+  (web-mode . prettier-mode))
+
+(add-hook 'web-mode-hook '(lambda ()
+                            ;; (setq web-mode-script-padding 0) ; <script>下不缩进
+                            (setq tab-width 2)
+                            (setq c-basic-offset 2)))
+
+(use-package yaml-mode
+  :ensure t)
+(use-package cmake-mode
+  :ensure t)
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
 
 
 (provide 'init-lsp)

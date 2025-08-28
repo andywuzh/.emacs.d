@@ -273,7 +273,11 @@
         ("C-x t B"   . treemacs-bookmark)
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag))
+  (:map treemacs-mode-map
+        ("j" . treemacs-next-line)
+        ("k" . treemacs-previous-line))
   )
+
 
 (use-package treemacs-projectile
   :after (treemacs projectile)

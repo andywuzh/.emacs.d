@@ -8,7 +8,6 @@ op.create_table(
         "id",
         mysql.INTEGER(unsigned=True),
         nullable=False,
-        server_default=sa.text("0"),
         autoincrement=True,
         primary_key=True,
         comment="",

@@ -11,10 +11,10 @@
   (setq eaf-python-command (expand-file-name (file-name-concat my/eaf-path ".venv/bin/python3") user-emacs-directory))
   :custom
   (eaf-browser-continue-where-left-off t)
-  (eaf-browser-enable-adblocker t)
-  (browse-url-browser-function 'eaf-open-browser)
-  :config
-  (defalias 'browse-web #'eaf-open-browser)
+  ;; (eaf-browser-enable-adblocker t)
+  ;; (browse-url-browser-function 'eaf-open-browser)
+  ;; :config
+  ;; (defalias 'browse-web #'eaf-open-browser)
   ;; (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
   ;; (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
   ;; (eaf-bind-key take_photo "p" eaf-camera-keybinding)
@@ -22,11 +22,17 @@
   )
 
 ;; eaf-browser eaf-image-viewer eaf-terminal eaf-file-manager eaf-mindmap eaf-mind-elixir eaf-markmap eaf-pyqterminal
-(dolist (app '(eaf-browser eaf-file-manager eaf-mindmap eaf-mind-elixir eaf-markmap))
+(dolist (app '(eaf-browser eaf-mindmap eaf-mind-elixir eaf-markmap))
   (eval `(use-package ,app
     :ensure nil
     :after eaf
     :defer t)))
+
+(use-package eaf-file-manager
+  :ensure nil
+  :after eaf
+  :init
+  (setq eaf-dired-advisor-enable nil))
 
 ;; (use-package eaf-browser
 ;;   :ensure nil

@@ -215,40 +215,9 @@
 ;   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 ; (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
-; ;;; html/js/vue
-(use-package web-mode
-  :init
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-  :config
-  (setq web-mode-markup-indent-offset 2
-        web-mode-css-indent-offset 2
-        web-mode-code-indent-offset 2
-        web-mode-enable-current-element-highlight t
-        web-mode-enable-current-column-highlight t
-        web-mode-comment-style 2)
-  (setq-default web-mode-comment-formats
-                '(("javascript" . "//")))
-  :hook
-  (web-mode . company-mode)
-  (web-mode . emmet-mode)
-  (web-mode . prettier-mode))
-<<<<<<< Updated upstream
-(add-hook 'web-mode-hook '(lambda ()
-                            (setq tab-width 2)
-                            (setq c-basic-offset 2)))
-=======
-;; (add-hook 'web-mode-hook '(lambda ()
-;;                             (setq tab-width 2)
-;;                             (setq c-basic-offset 2)))
->>>>>>> Stashed changes
-
 ;;; java
 ;(use-package lsp-java)
 
-(use-package prettier
-  :config
-  (global-prettier-mode))
 
 (use-package js2-mode)
 ;; (use-package js2-mode
@@ -267,12 +236,6 @@
 ;;   (vue-mode . lsp-mode))
 
 (use-package json-mode)
-(use-package yaml-mode)
-(use-package cmake-mode)
-
-(use-package editorconfig
-  :config
-  (editorconfig-mode 1))
 
 (provide 'init-program)
 ;;; init-program.el ends here

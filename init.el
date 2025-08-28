@@ -15,6 +15,7 @@
 ;; 交互配置
 (require 'init-ui)
 (require 'init-kbd)
+(require 'init-buff)
 
 (require 'init-misc)
 
@@ -27,7 +28,11 @@
 ;; 项目
 (require 'init-project)
 
+;; EAF
 (require 'init-eaf)
+
+;; AI
+(require 'init-ai)
 
 ;;(require 'init-program)
 ;;(require 'init-org)

@@ -99,6 +99,10 @@
   :hook
   (prog-mode-hook . highlight-indent-guides-mode))
 
+;; icon
+(use-package all-the-icons
+  :ensure t
+  :if (display-graphic-p))
 
 ;;; 主题
 ;; (use-package zenburn-theme
@@ -264,6 +268,7 @@
 
 
 ;;; 字体
+;; 'Source Code Pro', Menlo, Monaco, 'Courier New', 'Droid Sans Mono', 'monospace', monospace
 ;; (use-package cnfonts
 ;;   :config
 ;;   (setq cnfonts-mode 1
