@@ -4,8 +4,27 @@
 ;;; Commentary: 配置buff
 ;;; Code:
 
+;; (global-set-key (kbd "C-x C-b") 'ibuffer) ; 替换默认buffer-menu
+
+
 (use-package bufler
-  :ensure t)
+  :ensure t
+  :bind
+  (:map global-map
+        ("C-c b" . bufler-switch-buffer)
+        ("C-x C-b" . bufler-list)
+        )
+  )
+
+;; (use-package perspective
+;;   :ensure t
+;;   :init
+;;   (persp-mode)
+;;   :custom
+;;   (persp-mode-prefix-key (kbd "C-c M-p"))
+;;   :bind
+;;   ("C-x C-b" . persp-list-buffers)
+;;   )
 
 
 (provide 'init-buff)

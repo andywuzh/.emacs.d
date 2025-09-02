@@ -110,8 +110,9 @@
 ;;   :init (load-theme 'zenburn t))
 ;; (use-package gruvbox-theme
 ;;   :ensure t
-;;   :init (load-theme 'gruvbox-dark-soft t))
+;;   :init (load-theme 'gruvbox-dark-hard t))
 ;; (use-package doom-themes
+;;   :ensure t
 ;;   :init (load-theme 'doom-one t))
 ;; (use-package modus-themes
 ;;   :ensure t
