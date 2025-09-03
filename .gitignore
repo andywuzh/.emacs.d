@@ -36,6 +36,7 @@ projectile-bookmarks.eld
 # session
 easysession/
 .session
+session.*
 history
 
 # EAF

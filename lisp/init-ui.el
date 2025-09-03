@@ -105,9 +105,9 @@
   :if (display-graphic-p))
 
 ;;; 主题
-;; (use-package zenburn-theme
-;;   :ensure t
-;;   :init (load-theme 'zenburn t))
+(use-package zenburn-theme
+  :ensure t
+  :init (load-theme 'zenburn t))
 ;; (use-package gruvbox-theme
 ;;   :ensure t
 ;;   :init (load-theme 'gruvbox-dark-hard t))
@@ -137,13 +137,13 @@
 ;;   ;; (modus-themes-load-vivendi-deuteranopia) ; 暗, 色弱
 ;;   (load-theme 'modus-vivendi-deuteranopia :no-confirm)
 ;;   :bind ("<f5>" . modus-themes-toggle))
-(use-package catppuccin-theme
-  :ensure t
-  :init
-  (load-theme 'catppuccin :no-confirm)
-  (setq catppuccin-flavor 'mocha) ; latte, frappe, macchiato, mocha
-  (catppuccin-reload)
-  )
+;; (use-package catppuccin-theme
+;;   :ensure t
+;;   :init
+;;   (load-theme 'catppuccin :no-confirm)
+;;   (setq catppuccin-flavor 'mocha) ; latte, frappe, macchiato, mocha
+;;   (catppuccin-reload)
+;;   )
 ;; (use-package apropospriate-theme
 ;;   :ensure t
 ;;   :config
@@ -266,50 +266,6 @@
   (define-key isearch-mode-map [remap isearch-query-replace]  #'anzu-isearch-query-replace)
   (define-key isearch-mode-map [remap isearch-query-replace-regexp] #'anzu-isearch-query-replace-regexp)
   )
-
-
-;;; 字体
-;; 'Source Code Pro', Menlo, Monaco, 'Courier New', 'Droid Sans Mono', 'monospace', monospace
-;; (use-package cnfonts
-;;   :config
-;;   (setq cnfonts-mode 1
-;;         cnfonts-profiles
-;;         '("program" "org-mode" "read-book")))
-
-;; (when (display-graphic-p)
-;;   (if *is-linux*
-;;   (set-face-attribute
-;;    'default nil
-;;    ;; :font (font-spec :name "-PfEd-DejaVu Sans Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1"
-;;    :font (font-spec :name "-CTDB-FuraMono Nerd Font Mono-normal-normal-normal-*-16-*-*-*-*-0-iso10646-1"
-;;                     :weight 'normal
-;;                     :slant 'normal
-;;                     :size 9.0))
-;;   (dolist (charset '(kana han symbol cjk-misc bopomofo))
-;;     (set-fontset-font
-;;      (frame-parameter nil 'font)
-;;      charset
-;;      (font-spec :name "-WQYF-文泉驿等宽微米黑-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1"
-;;                 :weight 'normal
-;;                 :slant 'normal
-;;                 :size 10.0))))
-
-;;   (if *is-mac*
-;;       (set-face-attribute
-;;        'default nil
-;;        :font (font-spec :name "-*-Monaco-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1"
-;;                         :weight 'normal
-;;                         :slant 'normal
-;;                         :size 15))
-;;     (dolist (charset '(kana han symbol cjk-misc bopomofo))
-;;       (set-fontset-font
-;;        (frame-parameter nil 'font)
-;;        charset
-;;        (font-spec :name "-*-Microsoft YaHei-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1"
-;;                   :weight 'normal
-;;                   :slant 'normal
-;;                   :size 18)))))
-
 
 (provide 'init-ui)
 ;;; init-ui.el ends here

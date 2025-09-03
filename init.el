@@ -11,15 +11,18 @@
 (require 'init-funcs)
 (require 'init-runtime)
 (require 'init-elpa)
+(require 'init-font)
 
 ;; 交互配置
 (require 'init-ui)
-(require 'init-kbd)
+(require 'init-kbd)                     ; 快捷键
 (require 'init-buff)
 
 (require 'init-misc)
 
 (require 'init-package)
+
+(require 'init-ime)                     ; 输入法
 
 ;; 编程
 (require 'init-lsp)
