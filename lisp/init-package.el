@@ -12,10 +12,6 @@
 ;;   (exec-path-from-shell-initialize))
 
 ;; (use-package restart-emacs)
-;; (use-package session
-;;   :init
-;;   (setq session-save-file (expand-file-name ".emacs.session" (getenv "HOME")))
-;;   (add-hook 'after-init-hook 'session-initialize))
 
 ;; (use-package desktop
 ;;   :ensure nil
@@ -28,32 +24,6 @@
 ;;         )
 ;;   (desktop-save-mode t)
 ;;   )
-(use-package easysession
-  :ensure t
-  :commands (easysession-switch-to
-             easysession-save-as
-             easysession-save-mode
-             easysession-load-including-geometry)
-
-  :custom
-  ;; (easysession-mode-line-misc-info t)  ; Display the session in the modeline
-  (easysession-save-interval (* 60 10))  ; Save every 10 minutes
-
-  :init
-  (add-hook 'emacs-startup-hook #'easysession-load-including-geometry 102)
-  (add-hook 'emacs-startup-hook #'easysession-save-mode 103))
-
-(use-package savehist
-  :ensure nil
-  :hook
-  (after-init . savehist-mode)
-  :config
-  (add-to-list 'savehist-additional-variables 'kill-ring)
-  (add-to-list 'savehist-additional-variables 'mark-ring)
-  (add-to-list 'savehist-additional-variables 'search-ring)
-  (add-to-list 'savehist-additional-variables 'regexp-search-ring)
-  )
-
 
 (use-package which-key
   :ensure nil
