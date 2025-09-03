@@ -36,7 +36,11 @@
   (xterm-mouse-mode 1))
 
 (use-package emacs
-  :config (defalias 'yes-or-no-p 'y-or-n-p))
+  :custom
+  (require-final-newline t)
+  :config
+  (defalias 'yes-or-no-p 'y-or-n-p)
+  )
 
 (use-package emacs
   :init

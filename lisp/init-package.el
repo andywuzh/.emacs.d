@@ -28,7 +28,10 @@
 (use-package which-key
   :ensure nil
   :defer nil
-  :config (which-key-mode))
+  :custom
+  (which-key-idle-delay 1.0)
+  :hook
+  (after-init . which-key-mode))
 
 ;; (use-package evil
   ;; :init

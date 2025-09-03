@@ -17,12 +17,14 @@
 (require 'init-ui)
 (require 'init-kbd)                     ; 快捷键
 (require 'init-buff)
+(require 'init-minibuff)
 
 (require 'init-misc)
 
 (require 'init-package)
 
 (require 'init-ime)                     ; 输入法
+(require 'init-session)                 ; 会话处理
 
 ;; 编程
 (require 'init-lsp)

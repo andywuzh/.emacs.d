@@ -38,12 +38,15 @@
 
 ;; 最近打开的文件
 (use-package recentf
+  :ensure t
   :custom
   (recentf-max-menu-items 30)
+  (recentf-max-saved-items 100)
   :config
   (dolist (reg '("^/ssh:"
                  "^/sudo:"
                  "~/.emacs.d/.cache/.*"
+                 "^~/.emacs.d/session."
                  "recentf$"
                  ))
     (add-to-list 'recentf-exclude reg))
