@@ -13,5 +13,13 @@
   (vertico-mode 1)
   )
 
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil)
+  (completion-category-overrides '((file (styles partial-completion))))
+  )
+
 (provide 'init-minibuff)
 ;;; init-minibuff.el ends here

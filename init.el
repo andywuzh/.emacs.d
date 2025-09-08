@@ -13,16 +13,18 @@
 (require 'init-elpa)
 (require 'init-font)
 
-;; 交互配置
+;; UI
 (require 'init-ui)
-(require 'init-kbd)                     ; 快捷键
+(require 'init-tab)
 (require 'init-buff)
 (require 'init-minibuff)
 
+;; 交互配置
 (require 'init-misc)
 
 (require 'init-package)
 
+(require 'init-kbd)                     ; 快捷键
 (require 'init-ime)                     ; 输入法
 (require 'init-session)                 ; 会话处理
 
