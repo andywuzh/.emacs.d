@@ -28,6 +28,8 @@
 (require 'init-ime)                     ; 输入法
 (require 'init-session)                 ; 会话处理
 
+(require 'init-meow)                    ; Meow编辑
+
 ;; 编程
 (require 'init-lsp)
 (require 'init-terminal)

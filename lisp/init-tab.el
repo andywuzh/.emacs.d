@@ -32,7 +32,8 @@
             (or (string-prefix-p "*Compile-Log*" name)
                 (string-prefix-p "*Flycheck" name)))
        )))
-  (awesome-tab-mode t))
+  ;; (awesome-tab-mode t)
+  )
 
 
 

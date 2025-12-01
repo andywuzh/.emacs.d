@@ -81,7 +81,7 @@
         ;; cache
         projectile-enable-caching 'persistent ; t=仅当前emacs，'persistent=不同emacs
         projectile-auto-update-cache t
-        projectile-indexing-method 'alien ; 高效索引
+        projectile-indexing-method 'alien ; 'alien=高效索引,'native=本地索引
         ;; switch projects
         projectile-auto-discover t
         projectile-require-project-root t
