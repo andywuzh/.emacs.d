@@ -75,6 +75,11 @@
 ;;; 保存文件时删除行尾空格, 文末仅保留一行
 (add-hook 'before-save-hook (lambda () (delete-trailing-whitespace) (delete-trailing-lines)))
 
+;; shift+上下左右 切换buffers
+(use-package windmove
+  :ensure t
+  :config
+  (windmove-default-keybindings))
 
 ;;; 自动保存文件
 ;;(use-package auto-save

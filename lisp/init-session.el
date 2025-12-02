@@ -40,8 +40,9 @@
 (use-package recentf
   :ensure t
   :custom
-  (recentf-max-menu-items 30)
-  (recentf-max-saved-items 100)
+  (recentf-max-menu-items 15)
+  (recentf-max-saved-items 500)
+  (recentf-auto-cleanup 'never)
   :config
   (dolist (reg '("^/ssh:"
                  "^/sudo:"
