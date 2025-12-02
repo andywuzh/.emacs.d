@@ -5,6 +5,10 @@
 ;;; Code:
 
 
+;; frame标题
+(setq frame-title-format '((:eval (if (buffer-file-name) (abbreviate-file-name (buffer-file-name)) "%b"))
+                           (:eval (if (buffer-modified-p) " • UNSAVE"))))
+
 ;;; 隐藏菜单栏/工具栏/滚动条
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -202,44 +206,6 @@
 ;;                    (sleep-for 0.5)
 ;;                    ;; Call `toggle-frame-fullscreen' to fullscreen emacs.
 ;;                    (toggle-frame-fullscreen)))))
-
-;;; 状态栏
-;; (use-package smart-mode-line
-;;   :init
-;;   (setq sml/no-confirm-load-theme t
-;; 	    sml/theme 'respectful)
-;;   (sml/setup))
-
-;;(use-package doom-modeline
-;;  :init
-;;  (doom-modeline-mode 1)
-;;  :config
-;;  (setq doom-modeline-icon t
-;;        ;;doom-modeline-height 1
-;;        ;; doom-modeline-unicode-fallback t
-;;        ;; doom-modeline-lsp t
-;;        ))
-
-(use-package awesome-tray
-  :load-path "site-lisp/awesome-tray"
-  :demand t
-  :config
-  (awesome-tray-mode 1)
-  (setq awesome-tray-date-format "%m-%d %H:%M %a")
-  (setq awesome-tray-active-modules
-        '("anzu" "location" "git" "belong" "file-path" "mode-name" "date")))
-
-;; 搜索
-(use-package anzu
-  :ensure t
-  :defer nil
-  :config
-  (global-anzu-mode +1)
-  (set-face-attribute 'anzu-mode-line nil
-                      :foreground "yellow" :weight 'bold)
-  (define-key isearch-mode-map [remap isearch-query-replace]  #'anzu-isearch-query-replace)
-  (define-key isearch-mode-map [remap isearch-query-replace-regexp] #'anzu-isearch-query-replace-regexp)
-  )
 
 (provide 'init-ui)
 ;;; init-ui.el ends here
