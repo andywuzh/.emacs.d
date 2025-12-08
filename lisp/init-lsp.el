@@ -8,17 +8,6 @@
 
 ;; (use-package posframe)
 
-;; yasnippet
-(use-package yasnippet
-  :ensure t
-  :init
-  (setq yas-triggers-in-field t)
-  :config
-  (yas-global-mode 1))
-;; yasnippet-snippets
-(use-package yasnippet-snippets
-  :ensure t)
-
 (use-package markdown-mode
   :ensure t
   :mode ("README\\.md\\'" . gfm-mode)
@@ -74,18 +63,6 @@
   (global-lsp-bridge-mode)
   )
 
-;; prettier
-(use-package prettier
-  :ensure t
-  :config
-  (global-prettier-mode))
-
-
-;; json
-(use-package json-mode
-  :ensure t
-  :init
-  (setq js-indent-level 2))
 
 (use-package emmet-mode
   :ensure t)
@@ -115,16 +92,6 @@
                             ;; (setq web-mode-script-padding 0) ; <script>下不缩进
                             (setq tab-width 2)
                             (setq c-basic-offset 2)))
-
-(use-package yaml-mode
-  :ensure t)
-(use-package cmake-mode
-  :ensure t)
-
-(use-package editorconfig
-  :ensure t
-  :config
-  (editorconfig-mode 1))
 
 
 (provide 'init-lsp)

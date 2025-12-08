@@ -20,7 +20,7 @@
 (when (featurep 'ns)
   (push '(ns-transparent-titlebar . t) default-frame-alist))
 
-(setq-default mode-line-format nil)
+;; (setq-default mode-line-format nil)
 
 ;; 括号匹配
 ;; (show-parent-mode t)
@@ -109,9 +109,9 @@
   :if (display-graphic-p))
 
 ;;; 主题
-(use-package zenburn-theme
-  :ensure t
-  :init (load-theme 'zenburn t))
+;; (use-package zenburn-theme
+;;   :ensure t
+;;   :init (load-theme 'zenburn t))
 ;; (use-package gruvbox-theme
 ;;   :ensure t
 ;;   :init (load-theme 'gruvbox-dark-hard t))
@@ -141,13 +141,13 @@
 ;;   ;; (modus-themes-load-vivendi-deuteranopia) ; 暗, 色弱
 ;;   (load-theme 'modus-vivendi-deuteranopia :no-confirm)
 ;;   :bind ("<f5>" . modus-themes-toggle))
-;; (use-package catppuccin-theme
-;;   :ensure t
-;;   :init
-;;   (load-theme 'catppuccin :no-confirm)
-;;   (setq catppuccin-flavor 'mocha) ; latte, frappe, macchiato, mocha
-;;   (catppuccin-reload)
-;;   )
+(use-package catppuccin-theme
+  :ensure t
+  :init
+  (load-theme 'catppuccin :no-confirm)
+  (setq catppuccin-flavor 'mocha) ; latte, frappe, macchiato, mocha
+  (catppuccin-reload)
+  )
 ;; (use-package apropospriate-theme
 ;;   :ensure t
 ;;   :config

@@ -31,8 +31,10 @@
 (require 'init-meow)                    ; Meow编辑
 
 ;; 编程
+(require 'init-program)                 ; 编程通用
 (require 'init-lsp)
 (require 'init-terminal)
+(require 'init-web)
 
 ;; 项目
 (require 'init-project)
