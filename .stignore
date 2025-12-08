@@ -4,3 +4,4 @@ elpa/
 custom.*.el
 .venv/
 .projectile-cache.eld
+tree-sitter/

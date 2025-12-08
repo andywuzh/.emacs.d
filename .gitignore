@@ -39,8 +39,12 @@ easysession/
 session.*
 history
 
+# tree-sitter
+tree-sitter/
+
 # EAF
 eaf/
 
 # customize
 custom.*.el
+

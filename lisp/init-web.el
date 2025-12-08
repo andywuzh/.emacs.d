@@ -1,4 +1,4 @@
-;;; init-web --- web
+;;; init-web --- web  -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 

@@ -13,9 +13,3 @@
 [submodule "site-lisp/auto-save"]
 	path = site-lisp/auto-save
 	url = git@github.com:manateelazycat/auto-save.git
-[submodule "site-lisp/aweshell"]
-	path = site-lisp/aweshell
-	url = git@github.com:manateelazycat/aweshell.git
-[submodule "site-lisp/awesome-pair"]
-	path = site-lisp/awesome-pair
-	url = git@github.com:manateelazycat/awesome-pair.git

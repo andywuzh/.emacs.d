@@ -1,4 +1,4 @@
-;;; init-program --- 编程配置
+;;; init-program --- 编程配置  -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 
