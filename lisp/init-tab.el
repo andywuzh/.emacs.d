@@ -35,6 +35,14 @@
 ;;   ;; (awesome-tab-mode t)
 ;;   )
 
+;; (use-package centaur-tabs
+;;   :ensure t
+;;   :demand
+;;   :config
+;;   (centaur-tabs-mode t)
+;;   :bind
+;;   ("C-<prior>" . centaur-tabs-backward)
+;;   ("C-<next>" . centaur-tabs-forward))
 
 
 (provide 'init-tab)

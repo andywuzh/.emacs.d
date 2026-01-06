@@ -28,11 +28,11 @@
     :after eaf
     :defer t)))
 
-(use-package eaf-file-manager
-  :ensure nil
-  :after eaf
-  :init
-  (setq eaf-dired-advisor-enable nil))
+;; (use-package eaf-file-manager
+;;   :ensure nil
+;;   :after eaf
+;;   :init
+;;   (setq eaf-dired-advisor-enable nil))
 
 ;; (use-package eaf-browser
 ;;   :ensure nil

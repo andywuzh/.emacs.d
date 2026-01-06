@@ -83,6 +83,7 @@
         projectile-auto-update-cache t
         projectile-indexing-method 'alien ; 'alien=高效索引,'native=本地索引
         ;; switch projects
+        ;; projectile-track-known-projects-automatically nil
         projectile-auto-discover t
         projectile-require-project-root t
         projectile-switch-project-action #'projectile-find-file ; projectile-find-file/projectile-dired/...
@@ -290,6 +291,14 @@
 (use-package treemacs-magit
   :ensure t
   :after (treemacs magit))
+
+;; file browser
+(use-package range
+  :ensure t
+  ;; :init
+  ;; (setq ranger-use-hydra t)
+  :config
+  (ranger-override-dired-mode t))
 
 
 ;; (use-package flycheck

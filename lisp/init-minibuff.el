@@ -21,14 +21,14 @@
 ;;        ;; doom-modeline-lsp t
 ;;        ))
 
-(use-package awesome-tray
-  :load-path "site-lisp/awesome-tray"
-  :demand t
-  :config
-  (awesome-tray-mode 1)
-  (setq awesome-tray-date-format "%m-%d %H:%M %a")
-  (setq awesome-tray-active-modules
-        '("anzu" "location" "git" "belong" "file-path" "mode-name" "date")))
+;; (use-package awesome-tray
+;;   :load-path "site-lisp/awesome-tray"
+;;   :demand t
+;;   :config
+;;   (awesome-tray-mode 1)
+;;   (setq awesome-tray-date-format "%m-%d %H:%M %a")
+;;   (setq awesome-tray-active-modules
+;;         '("anzu" "location" "git" "belong" "file-path" "mode-name" "date")))
 
 ;; 搜索
 (use-package anzu

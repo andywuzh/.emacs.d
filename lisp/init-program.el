@@ -69,6 +69,10 @@
   (global-git-gutter-mode +1)
   )
 
+;; dockerfile
+;; (use-package dockerfile-mode
+;;   :ensure t)
+
 
 (provide 'init-program)
 ;;; init-program.el ends here

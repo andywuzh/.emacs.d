@@ -16,15 +16,16 @@
         )
   )
 
-;; (use-package perspective
-;;   :ensure t
-;;   :init
-;;   (persp-mode)
-;;   :custom
-;;   (persp-mode-prefix-key (kbd "C-c M-p"))
-;;   :bind
-;;   ("C-x C-b" . persp-list-buffers)
-;;   )
+(use-package perspective
+  :ensure t
+  :custom
+  (persp-mode-prefix-key (kbd "C-c M-p"))
+  :bind
+  ("C-x C-b" . persp-list-buffers)
+  ("C-x k" . persp-kill-buffer*)
+  :init
+  (persp-mode)
+  )
 
 
 (provide 'init-buff)

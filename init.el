@@ -40,7 +40,7 @@
 (require 'init-project)
 
 ;; EAF
-(require 'init-eaf)
+;; (require 'init-eaf)
 
 ;; AI
 (require 'init-ai)
