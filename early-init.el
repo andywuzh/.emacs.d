@@ -6,6 +6,7 @@
 
 (setq gc-cons-threshold most-positive-fixnum)
 
+;; 禁用native compilation; reason: lsp-bridge
 (setq native-comp-deferred-compilation nil
       native-comp-jit-compilation nil
       inhibit-automatic-native-compilation nil)

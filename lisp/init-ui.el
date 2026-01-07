@@ -117,7 +117,10 @@
 ;;   :init (load-theme 'gruvbox-dark-hard t))
 ;; (use-package doom-themes
 ;;   :ensure t
-;;   :init (load-theme 'doom-one t))
+;;   :config
+;;   (load-theme 'doom-one t)
+;;   (doom-themes-treemacs-config)
+;;   )
 ;; (use-package modus-themes
 ;;   :ensure t
 ;;   :init
@@ -144,8 +147,9 @@
 (use-package catppuccin-theme
   :ensure t
   :init
+  (setq catppuccin-flavor 'mocha) ; latte => 亮, frappe, macchiato, mocha => 暗
+  :config
   (load-theme 'catppuccin :no-confirm)
-  (setq catppuccin-flavor 'mocha) ; latte, frappe, macchiato, mocha
   (catppuccin-reload)
   )
 ;; (use-package apropospriate-theme
