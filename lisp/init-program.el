@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;;; 开发通用
-                                        ; tree-sitter
+;; tree-sitter
 ;; (use-package tree-sitter)
 ;; (use-package tree-sitter-langs
 ;;   :init

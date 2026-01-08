@@ -98,19 +98,28 @@
           dired-listing-switches "-aBhl --group-directories-first"))
 
 ;;; 有道字典
-; (use-package youdao-dictionary
-;   :commands youdao-dictionary-play-voice-of-current-word
-;   :bind (("C-c y" . youdao-dictionary-search-at-point-tooltip))
-;   :init
-;   (setq url-automatic-caching t
-;         youdao-dictionary-use-chinese-word-segmentation t)) ;中文分词
+;; (use-package youdao-dictionary
+;;   :commands youdao-dictionary-play-voice-of-current-word
+;;   :bind (("C-c y" . youdao-dictionary-search-at-point-tooltip))
+;;   :init
+;;   (setq url-automatic-caching t
+;;         youdao-dictionary-use-chinese-word-segmentation t)) ;中文分词
 
 ;;; 自动转换文件换行符
-; (defun auto-convert-newline ()
-;   (let ((coding-str (symbol-name buffer-file-coding-system)))
-;     (when (string-match "-\\(?:doc\\|mac\\)$" coding-str)
-;       (set-buffer-file-coding-system 'unix))))
-; (add-hook 'find-file-hook 'auto-convert-newline)
+;; (defun auto-convert-newline ()
+;;   (let ((coding-str (symbol-name buffer-file-coding-system)))
+;;     (when (string-match "-\\(?:doc\\|mac\\)$" coding-str)
+;;       (set-buffer-file-coding-system 'unix))))
+;; (add-hook 'find-file-hook 'auto-convert-newline)
+
+;; file browser
+(use-package range
+  :ensure t
+  ;; :init
+  ;; (setq ranger-use-hydra t)
+  :config
+  (ranger-override-dired-mode t))
+
 
 (provide 'init-misc)
 ;;; init-misc.el ends here

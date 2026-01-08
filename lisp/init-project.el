@@ -1,34 +1,8 @@
 ;; -*- lexical-binding: t; -*-
 
-;;; Package init-project --- 编程配置
+;;; Package init-project --- 项目配置
 ;;; Commentary:
 ;;; Code:
-
-;;; 开发通用
-
-(use-package editorconfig
-  :config
-  (editorconfig-mode 1))
-
-;; magit
-(use-package magit
-  :ensure t
-  :bind ("C-x g" . magit-status))
-(use-package git-gutter
-  :ensure t
-  :init
-  (setq git-gutter:modified-sign "  "
-        git-gutter:added-sign "++"
-        git-gutter:deleted-sign "--"
-        git-gutter:visual-line t
-        git-gutter:hide-gutter t
-        git-gutter:disabled-modes '(asm-mode image-mode))
-  :config
-  (set-face-background 'git-gutter:modified "purple")
-  (set-face-foreground 'git-gutter:added "green")
-  (set-face-foreground 'git-gutter:deleted "red")
-  (global-git-gutter-mode +1)
-  )
 
 ;; projection
 ;; (use-package projection
@@ -291,15 +265,6 @@
 (use-package treemacs-magit
   :ensure t
   :after (treemacs magit))
-
-;; file browser
-(use-package range
-  :ensure t
-  ;; :init
-  ;; (setq ranger-use-hydra t)
-  :config
-  (ranger-override-dired-mode t))
-
 
 ;; (use-package flycheck
 ;;   :init

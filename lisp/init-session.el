@@ -28,17 +28,18 @@
 ;;   (add-hook 'emacs-startup-hook #'easysession-save-mode 103))
 
 ;; perspective
-(use-package perspective
-  :ensure t
-  :custom
-  (persp-auto-save-filename (expand-file-name ".cache/perspective" user-emacs-directory))
-  (persp-auto-save-opt 1)  ; 自动保存间隔（分钟）
-  :config
-  ;; 启动时自动恢复会话
-  (add-hook 'after-init-hook #'persp-load-state-from-file t)
-  ;; 定时自动保存会话（每5分钟）
-  (run-with-idle-timer 300 t #'persp-save-state-to-file)
-  )
+;; (use-package perspective
+;;   :ensure t
+;;   :custom
+;;   (persp-state-default-file (expand-file-name ".cache/perspective" user-emacs-directory))
+;;   ;; :config
+;;   ;; 启动时自动恢复会话
+;;   ;; (add-hook 'after-init-hook #'persp-state-load)
+;;   ;; 定时自动保存会话（每5分钟）
+;;   ;; (run-with-idle-timer 300 t #'persp-state-save)
+;;   ;; 退出时自动保存会话
+;;   ;; (add-hook 'kill-emacs-hook #'persp-state-save)
+;;   )
 
 ;; 操作历史
 (use-package savehist

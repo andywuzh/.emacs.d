@@ -77,14 +77,6 @@
   ;;:init
   ;;(global-evil-matchit-mode 1))
 
-;; (use-package ibuffer
-;;   :bind (("C-x C-b" . ibuffer))
-;;   :init
-;;   (setq ibuffer-filter-group-name-face '(:inherit (font-lock-string-face bold)))
-;;   ;; :config
-;;   ;; (ibuffer-auto-mode 1)
-
-;;   )
 ;; (use-package ibuffer-projectile
 ;;   :after projectile
 ;;   :hook ((ibuffer . (lambda ()
