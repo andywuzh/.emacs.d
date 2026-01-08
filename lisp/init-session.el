@@ -10,21 +10,37 @@
 ;;   (setq session-save-file (expand-file-name ".emacs.session" (getenv "HOME")))
 ;;   (add-hook 'after-init-hook 'session-initialize))
 
-(use-package easysession
+;; 会话管理
+;; easysession
+;; (use-package easysession
+;;   :ensure t
+;;   :commands (easysession-switch-to
+;;              easysession-save-as
+;;              easysession-save-mode
+;;              easysession-load-including-geometry)
+;;
+;;   :custom
+;;   ;; (easysession-mode-line-misc-info t)  ; Display the session in the modeline
+;;   (easysession-save-interval (* 60 10))  ; Save every 10 minutes
+;;
+;;   :init
+;;   (add-hook 'emacs-startup-hook #'easysession-load-including-geometry 102)
+;;   (add-hook 'emacs-startup-hook #'easysession-save-mode 103))
+
+;; perspective
+(use-package perspective
   :ensure t
-  :commands (easysession-switch-to
-             easysession-save-as
-             easysession-save-mode
-             easysession-load-including-geometry)
-
   :custom
-  ;; (easysession-mode-line-misc-info t)  ; Display the session in the modeline
-  (easysession-save-interval (* 60 10))  ; Save every 10 minutes
+  (persp-auto-save-filename (expand-file-name ".cache/perspective" user-emacs-directory))
+  (persp-auto-save-opt 1)  ; 自动保存间隔（分钟）
+  :config
+  ;; 启动时自动恢复会话
+  (add-hook 'after-init-hook #'persp-load-state-from-file t)
+  ;; 定时自动保存会话（每5分钟）
+  (run-with-idle-timer 300 t #'persp-save-state-to-file)
+  )
 
-  :init
-  (add-hook 'emacs-startup-hook #'easysession-load-including-geometry 102)
-  (add-hook 'emacs-startup-hook #'easysession-save-mode 103))
-
+;; 操作历史
 (use-package savehist
   :ensure nil
   :hook
