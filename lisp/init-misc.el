@@ -117,8 +117,9 @@
   :ensure t
   ;; :init
   ;; (setq ranger-use-hydra t)
-  :config
-  (ranger-override-dired-mode t))
+  ;; :config
+  ;; (ranger-override-dired-mode t)
+  )
 
 
 (provide 'init-misc)

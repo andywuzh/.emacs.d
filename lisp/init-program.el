@@ -4,7 +4,22 @@
 
 ;;; 开发通用
 ;; tree-sitter
-;; (use-package tree-sitter)
+(use-package tree-sitter
+  :ensure t
+  :mode (("\\.py\\'" . python-ts-mode)
+         ("\\.c\\'" . c-ts-mode)
+         ("\\.cpp\\'" . c++-ts-mode)
+         ("\\.ts\\'" . typescript-ts-mode)
+         ("\\.tsx\\'" . tsx-ts-mode)
+         ;; 格式文件
+         ("\\.json\\'" . json-ts-mode)
+         ("\\.yml\\'" . yaml-ts-mode)
+         ("\\.yaml\\'" . yaml-ts-mode)
+         ("\\.toml\\'" . toml-ts-mode)
+         ("\\.Dockerfile\\'" . dockerfile-ts-mode)
+         ;; more ...
+         ))
+
 ;; (use-package tree-sitter-langs
 ;;   :init
 ;;   (global-tree-sitter-mode))

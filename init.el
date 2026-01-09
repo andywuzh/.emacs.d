@@ -34,6 +34,7 @@
 (require 'init-program)                 ; 编程通用
 (require 'init-lsp)
 (require 'init-terminal)
+(require 'init-python)
 (require 'init-web)
 
 ;; 项目

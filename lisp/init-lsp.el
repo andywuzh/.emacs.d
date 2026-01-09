@@ -68,38 +68,21 @@
         ("C-M-]" . lsp-bridge-find-references)
         )
   :config
+  ;; 优先使用treesit
+  (dolist (mode '(python-ts-mode
+                  typescript-ts-mode
+                  tsx-ts-mode
+                  c-ts-mode
+                  c++-ts-mode
+                  json-ts-mode
+                  yaml-ts-mode
+                  toml-ts-mode
+                  dockerfile-ts-mode
+                  ;; more ...
+                  ))
+    (add-to-list 'lsp-bridge-default-mode-hooks mode))
   (global-lsp-bridge-mode)
   )
-
-
-(use-package emmet-mode
-  :ensure t)
-
-;; html/js/vue
-(use-package web-mode
-  :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-  :config
-  (setq web-mode-script-padding 0       ; <script>下不缩进
-        web-mode-markup-indent-offset 2
-        web-mode-css-indent-offset 2
-        web-mode-code-indent-offset 2
-        web-mode-enable-current-element-highlight t
-        web-mode-enable-current-column-highlight t
-        web-mode-comment-style 2)
-  (setq-default web-mode-comment-formats
-                '(("javascript" . "//")))
-  :hook
-  ;; (web-mode . company-mode)
-  (web-mode . emmet-mode)
-  (web-mode . prettier-mode))
-
-(add-hook 'web-mode-hook '(lambda ()
-                            ;; (setq web-mode-script-padding 0) ; <script>下不缩进
-                            (setq tab-width 2)
-                            (setq c-basic-offset 2)))
 
 
 (provide 'init-lsp)
