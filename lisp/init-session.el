@@ -69,6 +69,7 @@
                  ))
     (add-to-list 'recentf-exclude reg))
   :hook (after-init . recentf-mode)
+  :bind (("C-c e" . recentf))
   )
 
 

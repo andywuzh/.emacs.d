@@ -95,7 +95,22 @@
 ;  (let ((result (or (and (fboundp 'server-running-p) (server-running-p))
 ;                   (member "--daemon" command-line-args))))
 ;  (message "[Debug] Daemon mode detected: %s" result)
-;  result))
+                                        ;  result))
+
+(defun my/rename-file-and-buffer (new-name)
+  "Renames both current buffer and file is's visting to NEW-NAME."
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not filename)
+        (message "Buffer '%s' is not visiting a file!" name)
+      (if (get-buffer new-name)
+          (message "A buffer named '%s' already exists!" new-name)
+        (progn
+          (rename-file filename new-name t) ; renmae file on disk
+          (rename-buffer new-name)          ; rename buffer
+          (set-visited-file-name new-name)  ; associates buffer with new file name
+          (set-buffer-modified-p nil))))))
 
 
 
