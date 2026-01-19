@@ -113,6 +113,13 @@
           (set-buffer-modified-p nil))))))
 
 
+(defun my/find-venv-python ()
+  "向上查找 .venv 目录并返回 python 路径"
+  (let ((venv-path (locate-dominating-file ".venv")))
+    (if venv-path
+        (expand-file-name ".venv/bin/python" venv-path)
+      "python3")))
+
 
 (provide 'init-funcs)
 ;;; init-funcs.el ends here

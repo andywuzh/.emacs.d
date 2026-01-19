@@ -16,17 +16,17 @@
   )
 ;;config for ibuffer-vc
 ;;copied from ibuffer-vc.el
-;; (defun init-ibuffer-group-by-vc-and-default ()
-;;   (interactive)
-;;   (let* ((vc-res (ibuffer-vc-generate-filter-groups-by-vc-root))
-;; 	 (new-group (append vc-res (cdr (assoc "default" ibuffer-saved-filter-groups)))))
-;;     (setq ibuffer-filter-groups new-group)
-;;     (let ((ibuf (get-buffer "*Ibuffer*")))
-;;       (when ibuf
-;;         (with-current-buffer ibuf
-;;           (pop-to-buffer ibuf)
-;;           (ibuffer-update nil t))))))
-;; (define-key ibuffer-mode-map (kbd "/ '") 'init-ibuffer-group-by-vc-and-default)
+(defun my/init-ibuffer-group-by-vc-and-default ()
+  (interactive)
+  (let* ((vc-res (ibuffer-vc-generate-filter-groups-by-vc-root))
+	 (new-group (append vc-res (cdr (assoc "default" ibuffer-saved-filter-groups)))))
+    (setq ibuffer-filter-groups new-group)
+    (let ((ibuf (get-buffer "*Ibuffer*")))
+      (when ibuf
+        (with-current-buffer ibuf
+          (pop-to-buffer ibuf)
+          (ibuffer-update nil t))))))
+;; (define-key ibuffer-mode-map (kbd "/ '") 'my/init-ibuffer-group-by-vc-and-default)
 
 
 ;; bufler 默认分组，按项目/目录等

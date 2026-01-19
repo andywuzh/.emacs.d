@@ -69,16 +69,16 @@
         )
   :config
   ;; 优先使用treesit
-  (dolist (mode '(python-ts-mode
-                  typescript-ts-mode
-                  tsx-ts-mode
-                  c-ts-mode
-                  c++-ts-mode
-                  json-ts-mode
-                  yaml-ts-mode
-                  toml-ts-mode
-                  dockerfile-ts-mode
-                  ;; more ...
+  (dolist (mode '(python-ts-mode-hook
+                  typescript-ts-mode-hook
+                  tsx-ts-mode-hook
+                  c-ts-mode-hook
+                  c++-ts-mode-hook
+                  json-ts-mode-hook
+                  yaml-ts-mode-hook
+                  toml-ts-mode-hook
+                  dockerfile-ts-mode-hook
+                  ;; more ...w
                   ))
     (add-to-list 'lsp-bridge-default-mode-hooks mode))
   (global-lsp-bridge-mode)
