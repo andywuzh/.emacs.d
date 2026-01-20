@@ -7,9 +7,12 @@
 (setq gc-cons-threshold most-positive-fixnum)
 
 ;; 禁用native compilation; reason: lsp-bridge
-(setq native-comp-deferred-compilation nil
-      native-comp-jit-compilation nil
-      inhibit-automatic-native-compilation nil)
+;; (setq native-comp-deferred-compilation nil
+;;       native-comp-jit-compilation nil
+;;       inhibit-automatic-native-compilation nil)
+;; Native compilation (Emacs 31+ 已兼容 lsp-bridge)
+(setq native-comp-jit-compilation t
+      native-comp-async-jobs-number 4)
 
 ; 启动时，禁止加载package，后续自行处理加载
 (setq package-enable-at-startup nil)

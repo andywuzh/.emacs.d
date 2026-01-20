@@ -2,41 +2,56 @@
 ;;; Commentary:
 ;;; Code:
 
-;; (use-package typescript-ts-mode
-;;   :mode (("\\.ts\\'" . typescript-ts-mode)
-;;          ("\\.tsx\\'" . tsx-ts-mode)))
+;; Vue Mode
+(use-package vue-ts-mode
+  :ensure nil
+  :hook
+  (vue-ts-mode . (lambda ()
+                   (setq tab-width 2)
+                   (setq js-indent-level 2)))
+  (vue-ts-mode . lsp-bridge-mode)
+  (vue-ts-mode . prettier-mode)
+  (vue-ts-mode . emmet-mode))
 
+;; TypeScript/TSX 模式增强
+(add-hook 'typescript-ts-mode-hook #'lsp-bridge-mode)
+(add-hook 'typescript-ts-mode-hook #'prettier-mode)
+(add-hook 'typescript-ts-mode-hook (lambda () (setq tab-width 2) (setq js-indent-level 2)))
+(add-hook 'tsx-ts-mode-hook #'lsp-bridge-mode)
+(add-hook 'tsx-ts-mode-hook #'prettier-mode)
+(add-hook 'tsx-ts-mode-hook (lambda () (setq tab-width 2) (setq js-indent-level 2)))
+
+;; HTML 模式增强
+(add-hook 'html-ts-mode-hook #'lsp-bridge-mode)
+(add-hook 'html-ts-mode-hook #'emmet-mode)
+(add-hook 'html-ts-mode-hook #'prettier-mode)
+(add-hook 'html-ts-mode-hook (lambda () (setq tab-width 2) (setq sgml-basic-offset 2)))
+
+;; CSS 模式增强
+(add-hook 'css-ts-mode-hook #'lsp-bridge-mode)
+(add-hook 'css-ts-mode-hook #'prettier-mode)
+(add-hook 'css-ts-mode-hook (lambda () (setq tab-width 2) (setq css-indent-offset 2)))
+
+;; JavaScript 模式
 (use-package js2-mode
   :ensure t
-  :mode "\\.js\\'")
-;; (use-package js2-mode
-;;   :init
-;;   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
+  :mode "\\.js\\'"
+  :hook
+  (js2-mode . (lambda ()
+                (setq tab-width 2)
+                (setq js-indent-level 2))))
 
-;; (use-package vue-mode
-;;   ;; :mode "\\.vue\\'"
-;;   :config
-;;   ;; (add-hook 'vue-mode-hook #'lsp-deferred)
-;;   (setq prettier-js-args '("--parser vue"))
-;;   :init
-;;   (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode)))
-;; (use-package vue-mode
-;;   :hook
-;;   (vue-mode . lsp-mode))
-
-;; (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-ts-mode))
-
+;; Emmet 模式
 (use-package emmet-mode
   :ensure t)
 
-;; html/js/vue
+;; Web 模式 (用于 .jsx, .tsx 文件等)
 (use-package web-mode
   :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+  :mode (("\\.jsx\\'" . web-mode)
+         ("\\.tsx\\'" . web-mode))
   :config
-  (setq web-mode-script-padding 0       ; <script>下不缩进
+  (setq web-mode-script-padding 0
         web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
         web-mode-code-indent-offset 2
@@ -46,15 +61,8 @@
   (setq-default web-mode-comment-formats
                 '(("javascript" . "//")))
   :hook
-  ;; (web-mode . company-mode)
   (web-mode . emmet-mode)
   (web-mode . prettier-mode))
 
-(add-hook 'web-mode-hook '(lambda ()
-                            ;; (setq web-mode-script-padding 0) ; <script>下不缩进
-                            (setq tab-width 2)
-                            (setq c-basic-offset 2)))
-
 (provide 'init-web)
-
 ;;; init-web.el ends here

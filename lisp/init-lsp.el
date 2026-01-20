@@ -78,7 +78,9 @@
                   yaml-ts-mode-hook
                   toml-ts-mode-hook
                   dockerfile-ts-mode-hook
-                  ;; more ...w
+                  html-ts-mode-hook
+                  css-ts-mode-hook
+                  vue-ts-mode-hook
                   ))
     (add-to-list 'lsp-bridge-default-mode-hooks mode))
   (global-lsp-bridge-mode)
