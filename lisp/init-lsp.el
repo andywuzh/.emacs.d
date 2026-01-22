@@ -34,6 +34,7 @@
    ;; acm
    acm-enable-tabnine nil          ; 禁用默认开启的tabnine补全
    acm-enable-doc t
+   )
 
    ;; remote config
    ;; lsp-bridge-enable-with-tramp t
@@ -43,12 +44,13 @@
    ;; lsp-bridge-remote-log "/var/log/lsp-bridge/lsp-bridge.log"
 
    ;; python-lsp-bridge
-   ;; ATTENTION lsp-bridge本身使用的python配置, 两种方式
+   ;; attention lsp-bridge本身使用的python配置, 两种方式
    ;; 1. 使用uv
    ;;   - 软链接site-lisp/lsp-bridge/python-lsp-bridge到某个$PATH下，比如~/.local/bin/python-lsp-bridge
    ;;   - cd site-lisp/lsp-bridge && uv venv -p 3.13 # venv版本尽量与lsp-bridge/pyproject.toml配置兼容
    ;; 2. 指定python路径，可使用pyenv
-   ;; (setq lsp-bridge-python-command "~/.pyenv/versions/3.12.4/bin/python3")
+  ;; (setq lsp-bridge-python-command "~/.pyenv/versions/3.12.4/bin/python3")
+  (setq lsp-bridge-python-command (expand-file-name "site-lisp/lsp-bridge/.venv/bin/python3" user-emacs-directory))
 
    ;; language server
    ;;  lsp-bridge-user-langserver-dir (expand-file-name "lisp/lsp/langserver" user-emacs-directory)
@@ -57,7 +59,6 @@
    ;; lsp-bridge-python-multi-lsp-server "jedi_ruff"
    ;; (setq lsp-bridge-python-lsp-server "basedpyright")
    ;; (setq lsp-bridge-python-multi-lsp-server "basedpyright_ruff")
-   )
   :bind
   (:map lsp-bridge-mode-map
         ("C-c l r" . lsp-bridge-rename)

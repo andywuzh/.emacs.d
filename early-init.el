@@ -4,6 +4,9 @@
 ;;; Commentary: 加载init.el前执行
 ;;; Code:
 
+;; 调试
+;; (setq debug-on-error t)
+
 (setq gc-cons-threshold most-positive-fixnum)
 
 ;; 禁用native compilation; reason: lsp-bridge

@@ -17,7 +17,6 @@
          ("\\.scss\\'" . css-ts-mode)
          ("\\.sass\\'" . css-ts-mode)
          ("\\.less\\'" . css-ts-mode)
-         ("\\.vue\\'" . vue-ts-mode)
          ("\\.json\\'" . json-ts-mode)
          ("\\.yml\\'" . yaml-ts-mode)
          ("\\.yaml\\'" . yaml-ts-mode)
@@ -38,14 +37,10 @@
         (toml "https://github.com/tree-sitter/tree-sitter-toml")
         (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
         (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-        (vue "https://github.com/ikatyang/tree-sitter-vue")
         (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
 
-;; (use-package tree-sitter-langs
-;;   :init
-;;   (global-tree-sitter-mode))
 ;; 自动安装缺失的 tree-sitter 语法
-(dolist (lang '(bash c cpp css html javascript json python toml tsx typescript vue yaml))
+(dolist (lang '(bash c cpp css html javascript json python toml tsx typescript yaml))
   (unless (treesit-language-available-p lang)
     (treesit-install-language-grammar lang)))
 
@@ -80,6 +75,7 @@
                  (setq js-indent-level 2))))
 (use-package yaml-mode :ensure t)
 (use-package cmake-mode :ensure t)
+(use-package protobuf-mode :ensure t)
 
 ;; Makefile 模式 (Tab 缩进，显示 4 空格)
 (use-package make-mode
