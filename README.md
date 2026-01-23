@@ -23,11 +23,12 @@ git clone --recurse-submodules <repo> ~/.emacs.d
 # 设置 LSP Bridge Python 环境
 cd ~/.emacs.d/site-lisp/lsp-bridge
 uv venv -p 3.13
+uv sync --frozen
 ```
 
 ## 关键配置
 
-- **LSP Bridge**: Python 3.13，配置在 `lsp/langserver/*.json`
+- **LSP Bridge**: Python 3.13，配置在 `lisp/lsp/langserver/*.json`
 - **平台配置**: `custom.linux.el` / `custom.mac.el` / `custom.windows.el`
 - **模块加载顺序**: 见 `init.el`
 

@@ -17,11 +17,7 @@
 ```bash
 # 初始化
 git clone --recurse-submodules <repo> ~/.emacs.d
-cd site-lisp/lsp-bridge && uv venv -p 3.13
-
-# 测试
-cd site-lisp/lsp-bridge && python test/test.py
-M-x lsp-bridge-start-test  # Emacs Lisp
+cd site-lisp/lsp-bridge && uv venv -p 3.13 && uv sync --frozen
 
 # 维护
 git submodule update --remote
@@ -74,7 +70,7 @@ rm -rf .cache/ eln-cache/
 
 ## 关键配置
 
-- **LSP Bridge**: Python 3.13, 配置在 `lsp/langserver/*.json`
+- **LSP Bridge**: Python 3.13, 配置在 `lisp/lsp/langserver/*.json`
 - **平台配置**: `custom.linux.el` / `custom.mac.el` / `custom.windows.el`（不提交）
 
 ## 常见问题
@@ -82,4 +78,4 @@ rm -rf .cache/ eln-cache/
 - LSP Bridge 路径: 配置 `lsp-bridge-python-command`
 - 子模块更新: 使用 `git submodule update --remote`
 - 会话损坏: 删除 `easysession/`
-- 启动慢: 查看 `*Messages*` buffer
+- 启动慢: early-init.el中打开调试，重新启动后查看 `*Messages*` buffer
