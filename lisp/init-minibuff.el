@@ -11,15 +11,17 @@
 ;; 	    sml/theme 'respectful)
 ;;   (sml/setup))
 
-;;(use-package doom-modeline
-;;  :init
-;;  (doom-modeline-mode 1)
-;;  :config
-;;  (setq doom-modeline-icon t
-;;        ;;doom-modeline-height 1
-;;        ;; doom-modeline-unicode-fallback t
-;;        ;; doom-modeline-lsp t
-;;        ))
+(use-package doom-modeline
+  :ensure t
+  :init
+  (doom-modeline-mode 1)
+  :config
+  (setq doom-modeline-icon t
+        ;; doom-modeline-height 1
+        ;; doom-modeline-unicode-fallback t
+        doom-modeline-lsp t
+        doom-modeline-lsp-icon t
+        ))
 
 ;; (use-package awesome-tray
 ;;   :load-path "site-lisp/awesome-tray"
