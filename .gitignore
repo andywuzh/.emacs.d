@@ -10,6 +10,9 @@ auto-save-list/
 eshell/
 transient/
 
+# mac osx
+.DS_Store
+
 # lsp
 .lsp-session-v1
 lsp-cache/
@@ -47,4 +50,3 @@ eaf/
 
 # customize
 custom.*.el
-

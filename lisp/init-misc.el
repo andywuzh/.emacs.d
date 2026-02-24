@@ -113,13 +113,16 @@
 ;; (add-hook 'find-file-hook 'auto-convert-newline)
 
 ;; file browser
-(use-package range
-  :ensure t
-  ;; :init
-  ;; (setq ranger-use-hydra t)
-  ;; :config
-  ;; (ranger-override-dired-mode t)
-  )
+;; (use-package ranger
+;;   :ensure t
+;;   :init
+;;   (setq ranger-use-hydra t)
+;;   (setq ranger-cleanup-on-disable t)
+;;   :config
+;;   (ranger-override-dired-mode nil))
+;; (use-package hydra
+;;   :ensure t
+;;   :after ranger)
 
 
 (provide 'init-misc)

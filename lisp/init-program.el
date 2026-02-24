@@ -73,6 +73,9 @@
   (json-mode . (lambda ()
                  (setq tab-width 2)
                  (setq js-indent-level 2))))
+;; 处理jsonc
+(add-to-list 'auto-mode-alist '("\\.jsonc\\'" . jsonc-mode))
+
 (use-package yaml-mode :ensure t)
 (use-package cmake-mode :ensure t)
 (use-package protobuf-mode :ensure t)

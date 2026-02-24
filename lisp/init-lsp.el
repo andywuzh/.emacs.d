@@ -60,6 +60,7 @@
   ;; (setq lsp-bridge-python-multi-lsp-server "jedi_ruff")
   ;; (setq lsp-bridge-python-lsp-server "basedpyright")
   ;; (setq lsp-bridge-python-multi-lsp-server "basedpyright_ruff")
+
   :bind
   (:map lsp-bridge-mode-map
         ("C-c l r" . lsp-bridge-rename)
@@ -69,6 +70,7 @@
         ("M-[" . lsp-bridge-find-def-return)
         ("C-M-]" . lsp-bridge-find-references)
         )
+
   :config
   ;; 优先使用treesit
   (dolist (mode '(python-ts-mode-hook
@@ -86,7 +88,6 @@
     (add-to-list 'lsp-bridge-default-mode-hooks mode))
   (global-lsp-bridge-mode)
   )
-
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
